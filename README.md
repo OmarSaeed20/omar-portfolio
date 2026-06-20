@@ -1,6 +1,6 @@
 <p align="center">
   <img src="public/assets/OS_logo.png"  height="128">
-  <h2 align="center"><a href="https://omarsaeed.dev"> Omar Saeed — Portfolio </a></h2>
+  <h2 align="center"><a href="https://omar-portfolio-blond.vercel.app/"> Omar Saeed — Portfolio </a></h2>
   <p align="center">Flutter Developer Portfolio<p>
   <p align="center">
    <a href='#'><img src=https://img.shields.io/badge/Maintained%3F-yes-green.svg></img><a/>
