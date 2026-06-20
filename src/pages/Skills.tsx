@@ -28,7 +28,7 @@ const Skills = () => {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="text-base md:text-lg lg:text-xl text-zinc-500 max-w-2xl mx-auto font-medium"
           >
-            A curated selection of technologies I use to build high-performance products.
+            A curated selection of technologies I use to build high-performance mobile applications.
           </motion.p>
         </div>
 

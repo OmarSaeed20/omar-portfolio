@@ -36,7 +36,7 @@ const About = () => {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="text-base md:text-lg lg:text-xl text-zinc-500 max-w-2xl mx-auto font-medium"
           >
-            A chronological journey through professional evolution and engineering milestones.
+            A chronological journey through professional evolution and engineering milestones — from first lines of code to 16+ production apps.
           </motion.p>
         </div>
 

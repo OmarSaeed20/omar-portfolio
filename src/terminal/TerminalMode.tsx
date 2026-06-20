@@ -48,7 +48,7 @@ const TerminalMode = ({ setTerminalMode, setUiType }: Props) => {
     const trimmed = cmd.trim();
     if (!trimmed) return;
 
-    pushLine({ text: `aj-seven@terminal:~$ ${trimmed}`, type: "success" });
+    pushLine({ text: `omar-saeed@terminal:~$ ${trimmed}`, type: "success" });
 
     // Ensure we clear input and save history before any specific command logic
     setCommandHistory((prev) => {
@@ -228,7 +228,7 @@ const TerminalMode = ({ setTerminalMode, setUiType }: Props) => {
           }}
           className="flex items-center mb-4"
         >
-          <span className="pr-2 text-green-300">aj-seven@terminal:~$</span>
+          <span className="pr-2 text-green-300">omar-saeed@terminal:~$</span>
           <div className="relative flex-1 min-h-[1.5rem]">
             {/* Visual block cursor and text */}
             <div className="absolute inset-0 pointer-events-none flex items-center whitespace-pre">

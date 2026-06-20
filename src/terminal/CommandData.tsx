@@ -1,5 +1,5 @@
 import React from "react";
-import { ExternalLink, Github, Linkedin } from "lucide-react";
+import { ExternalLink, Github, Linkedin, Mail, Phone } from "lucide-react";
 import { contactItems, skills, projectData, personalInfo } from "../data/userData";
 
 export const getCommandData = (setTerminalMode: (v: boolean) => void): Record<string, React.ReactNode> => ({
@@ -33,7 +33,7 @@ export const getCommandData = (setTerminalMode: (v: boolean) => void): Record<st
                 rel="noopener noreferrer"
                 className="hover:underline text-primary font-bold"
               >
-                aj-seven
+                OmarSaeed20
               </a>
             </span>
             <span className="font-semibold flex flex-row items-center gap-1">
@@ -83,6 +83,23 @@ export const getCommandData = (setTerminalMode: (v: boolean) => void): Record<st
                 </span>
               ))}
             </div>
+
+            {/* Platform Links */}
+            {project.platforms && project.platforms.length > 0 && (
+              <div className="flex flex-wrap gap-2 mb-4">
+                {project.platforms.map((platform) => (
+                  <a
+                    key={platform.name}
+                    href={platform.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-xs text-primary hover:underline font-semibold"
+                  >
+                    <ExternalLink size={12} /> {platform.name}
+                  </a>
+                ))}
+              </div>
+            )}
 
             <div className="flex gap-4 flex-wrap">
               {project.github && (

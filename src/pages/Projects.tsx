@@ -2,11 +2,20 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Github, ArrowUpRight } from "lucide-react";
+import { Github, ArrowUpRight, ExternalLink, Smartphone, Globe } from "lucide-react";
 import clsx from "clsx";
 import { projectData } from "../data/userData";
 
 const categories = Array.from(new Set(projectData.map((p) => p.category)));
+
+const platformIcons: Record<string, React.ReactNode> = {
+  "Google Play": <Smartphone size={12} />,
+  "App Store": <Smartphone size={12} />,
+  "Web App": <Globe size={12} />,
+  "Driver - Google Play": <Smartphone size={12} />,
+  "Driver - App Store": <Smartphone size={12} />,
+  "Passenger - Google Play": <Smartphone size={12} />,
+};
 
 const Projects = ({ limit }: { limit?: number }) => {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -41,7 +50,7 @@ const Projects = ({ limit }: { limit?: number }) => {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="text-base md:text-lg lg:text-xl text-zinc-500 max-w-2xl mx-auto font-medium"
           >
-            A collection of my most impactful work, from web applications to creative experiments.
+            16+ production apps across Android, iOS, and Web — from GPS tracking to workforce management.
           </motion.p>
         </div>
 
@@ -84,8 +93,13 @@ const Projects = ({ limit }: { limit?: number }) => {
               transition={{ delay: 0.1, duration: 0.5 }}
               className="rounded-3xl p-4 border border-white/5 bg-white/[0.02] hover:border-blue-500/30 hover:bg-white/[0.04] transition-all duration-500 text-left flex flex-col h-full group"
             >
-              <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-blue-500 transition-colors">{project.name}</h3>
-              <p className="text-base text-zinc-400 mb-6 flex-grow leading-relaxed">
+              <div className="flex items-start justify-between mb-3">
+                <h3 className="text-2xl font-bold text-white group-hover:text-blue-500 transition-colors">{project.name}</h3>
+                {project.rating && project.rating !== "—" && (
+                  <span className="text-xs font-bold text-zinc-500 whitespace-nowrap ml-2">{project.rating}</span>
+                )}
+              </div>
+              <p className="text-base text-zinc-400 mb-4 flex-grow leading-relaxed">
                 {project.description || "Building the future of digital experiences."}
               </p>
               <div className="flex flex-wrap gap-1 text-xs mb-4">
@@ -99,8 +113,26 @@ const Projects = ({ limit }: { limit?: number }) => {
                 ))}
               </div>
 
+              {/* Platform Links */}
+              {project.platforms && project.platforms.length > 0 && (
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.platforms.map((platform) => (
+                    <a
+                      key={platform.name}
+                      href={platform.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-bold text-zinc-400 hover:text-white hover:border-blue-500/30 hover:bg-blue-500/10 transition-all duration-300"
+                    >
+                      {platformIcons[platform.name] || <ExternalLink size={12} />}
+                      {platform.name}
+                    </a>
+                  ))}
+                </div>
+              )}
+
               <div className="flex items-center justify-between mt-auto pt-4 border-t border-white/5">
-                {project.github && (
+                {project.github ? (
                   <a
                     href={project.github}
                     target="_blank"
@@ -109,6 +141,8 @@ const Projects = ({ limit }: { limit?: number }) => {
                   >
                     <Github size={18} /> Source
                   </a>
+                ) : (
+                  <span />
                 )}
                 {project.live && (
                   <a

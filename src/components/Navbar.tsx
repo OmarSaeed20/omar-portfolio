@@ -21,7 +21,7 @@ const Navbar = ({ terminalMode, setTerminalMode, uiType, setUiType }: Props) => 
   }, []);
 
   useEffect(() => {
-    fetch("https://api.github.com/repos/aj-seven/aj-seven.me")
+    fetch("https://api.github.com/repos/OmarSaeed20/OmarSaeed20")
       .then((res) => res.json())
       .then((data) => {
         if (typeof data.stargazers_count === "number") {
@@ -67,7 +67,7 @@ const Navbar = ({ terminalMode, setTerminalMode, uiType, setUiType }: Props) => 
             </div>
             <div className="relative">
               <span className="font-black text-2xl tracking-tighter uppercase text-white flex items-baseline">
-                AJ<span className={`text-[17px] ml-0.5 transition-colors ${terminalMode ? "text-zinc-500 group-hover:text-green-500" : "text-zinc-500 group-hover:text-blue-500"}`}>SEVEN</span>
+                OS<span className={`text-[17px] ml-0.5 transition-colors ${terminalMode ? "text-zinc-500 group-hover:text-green-500" : "text-zinc-500 group-hover:text-blue-500"}`}>20</span>
               </span>
               <div className={`absolute -bottom-0.5 left-0 h-1 rounded-full transition-all duration-300 w-0 group-hover:w-full ${terminalMode ? "bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)]" : "bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.5)]"}`} />
             </div>
@@ -93,7 +93,7 @@ const Navbar = ({ terminalMode, setTerminalMode, uiType, setUiType }: Props) => 
             <div className="h-4 w-px bg-white/10 mx-1 hidden sm:block" /> */}
 
             <a
-              href="https://github.com/aj-seven/aj-seven.me"
+              href="https://github.com/OmarSaeed20"
               target="_blank"
               className="flex items-center gap-2 px-3 py-1.5 rounded-xl border border-white/5 bg-white/5 hover:bg-white/10 transition-all group"
             >

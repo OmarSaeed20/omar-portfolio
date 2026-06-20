@@ -27,7 +27,7 @@ const Contact = () => {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="text-base md:text-lg lg:text-xl text-zinc-500 max-w-2xl mx-auto font-medium"
           >
-            Let's build something great together. I'm always open to new opportunities and collaborations.
+            Let's build something great together. I'm always open to new opportunities and collaborations — especially in Flutter and mobile development.
           </motion.p>
         </div>
 
@@ -40,23 +40,23 @@ const Contact = () => {
             className="text-left space-y-4"
           >
             <h3 className="text-3xl md:text-5xl font-black leading-tight text-white tracking-tighter">
-              Let’s build <span className="text-blue-600 text-glow">better</span> products.
+              Let's build <span className="text-blue-600 text-glow">amazing</span> apps.
             </h3>
 
             <p className="text-lg md:text-2xl text-zinc-400 font-medium max-w-md leading-relaxed">
-              Open for interesting opportunities or just a meaningful chat.
+              Open for Flutter opportunities or just a meaningful chat.
             </p>
 
             {/* CTA BUTTONS */}
             <div className="flex flex-wrap gap-2">
               <a
-                href="mailto:ajseven@outlook.in"
+                href="mailto:omarhamode106@gmail.com"
                 className="px-6 py-3.5 rounded-full bg-white text-black font-black text-base transition-all duration-300 hover:bg-zinc-200 hover:-translate-y-1 flex items-center gap-2 group"
               >
                 Start a Conversation
               </a>
               <a
-                href={resume["full-stack-developer"]}
+                href={resume["flutter-developer"]}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3.5 text-white border border-white/10 rounded-full font-black text-base hover:bg-white/5 hover:-translate-y-1 transition-all duration-300"
