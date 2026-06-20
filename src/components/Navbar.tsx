@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Terminal, Code2, Github, Star } from "lucide-react";
+import { Terminal, Github, Star } from "lucide-react";
 
 type Props = {
   terminalMode: boolean;
@@ -57,13 +57,9 @@ const Navbar = ({ terminalMode, setTerminalMode, uiType, setUiType }: Props) => 
             }}
             className="flex items-center gap-2 group"
           >
-            <div className={`p-2 rounded-xl border transition-all duration-300 ${terminalMode ? "border-green-500/50 bg-green-500/10" : "border-white/10 bg-white/5 group-hover:border-blue-500/50"
+            <div className={`rounded-xl overflow-hidden transition-all duration-300 ${terminalMode ? "ring-2 ring-green-500/50" : "ring-2 ring-white/10 group-hover:ring-blue-500/50"
               }`}>
-              {terminalMode ? (
-                <Terminal size={22} className="text-green-500" />
-              ) : (
-                <Code2 size={22} className="text-blue-500" />
-              )}
+              <img src="/assets/OS_logo.png" alt="OS Logo" className="w-10 h-10 object-contain" />
             </div>
             <div className="relative">
               <span className="font-black text-2xl tracking-tighter uppercase text-white flex items-baseline">

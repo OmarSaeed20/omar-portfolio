@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="public/assets/Logo.png"  height="128">
+  <img src="public/assets/OS_logo.png"  height="128">
   <h2 align="center"><a href="https://omarsaeed.dev"> Omar Saeed — Portfolio </a></h2>
   <p align="center">Flutter Developer Portfolio<p>
   <p align="center">
