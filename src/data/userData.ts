@@ -18,7 +18,7 @@ export const personalInfo = {
   ],
   college: "Menoufia University",
   collegeUrl: "https://menofia.edu.eg/",
-  avatarUrl: "/assets/ME.jpg",
+  avatarUrl: "/assets/avatar-4.png",
   status: "Available for work",
   aboutText: "Passionate Flutter Developer from Egypt with 4+ years of experience building production-level mobile applications across Android, iOS, and Web platforms.",
   aboutText1: "I'm Omar Saeed, based in Egypt. I graduated in Commerce (English Section) from ",
