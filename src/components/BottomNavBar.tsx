@@ -58,7 +58,7 @@ const BottomNavBar = ({ forcedTab, setForcedTab }: Props) => {
 
   return (
     <div className="fixed bottom-4 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
-      <nav className="bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl px-2 py-2 shadow-2xl pointer-events-auto">
+      <nav className="bg-[var(--bottom-nav-bg)] backdrop-blur-xl border border-[var(--bottom-nav-border)] rounded-2xl px-2 py-2 shadow-2xl pointer-events-auto">
         <div className="flex items-center gap-1 sm:gap-2 px-1">
           {navItems.map((item) => {
             const isActive = item.id === activeSection;
@@ -76,8 +76,8 @@ const BottomNavBar = ({ forcedTab, setForcedTab }: Props) => {
                   }
                 }}
                 className={`relative flex items-center justify-center p-3 sm:p-4 rounded-2xl transition-all duration-300 group ${isActive
-                  ? "text-blue-500 bg-white/10"
-                  : "text-zinc-500 hover:text-zinc-300 hover:bg-white/5"
+                  ? "text-blue-500 bg-[var(--accent)]"
+                  : "text-[var(--text-muted)] hover:text-[var(--text-secondary)] hover:bg-[var(--accent)]"
                   }`}
               >
                 <div className="flex items-center gap-2">
@@ -98,7 +98,7 @@ const BottomNavBar = ({ forcedTab, setForcedTab }: Props) => {
 
                 {/* Tooltip */}
                 {!isActive && (
-                  <span className="absolute -top-12 left-1/2 -translate-x-1/2 px-3 py-1 bg-zinc-800 text-white text-xs font-bold rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-white/5 whitespace-nowrap">
+                  <span className="absolute -top-12 left-1/2 -translate-x-1/2 px-3 py-1 bg-[var(--glass-bg)] backdrop-blur-xl text-[var(--foreground)] text-xs font-bold rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-[var(--glass-border)] whitespace-nowrap">
                     {item.name}
                   </span>
                 )}

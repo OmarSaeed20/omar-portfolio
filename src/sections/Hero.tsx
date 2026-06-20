@@ -32,7 +32,7 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-bold uppercase tracking-widest"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--badge-bg)] border border-[var(--badge-border)] text-[var(--badge-text)] text-sm font-bold uppercase tracking-widest"
           >
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
@@ -46,10 +46,10 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8, ease: "circOut" }}
-            className="text-4xl sm:text-6xl lg:text-8xl font-black leading-[0.9] tracking-tighter text-white"
+            className="text-4xl sm:text-6xl lg:text-8xl font-black leading-[0.9] tracking-tighter text-[var(--text-primary)]"
           >
             <span className="block">{personalInfo.name}</span>
-            <span className="block text-zinc-500 text-3xl sm:text-5xl lg:text-7xl">
+            <span className="block text-[var(--text-muted)] text-3xl sm:text-5xl lg:text-7xl">
               {personalInfo.role}
             </span>
           </motion.h1>
@@ -59,7 +59,7 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="text-lg md:text-xl text-zinc-400 leading-relaxed max-w-lg"
+            className="text-lg md:text-xl text-[var(--text-secondary)] leading-relaxed max-w-lg"
           >
             {personalInfo.aboutText}
           </motion.p>
@@ -84,7 +84,7 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
                   document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
                 }
               }}
-              className="flex-1 sm:flex-none px-6 py-3.5 rounded-full bg-white text-black font-black text-base hover:bg-zinc-100 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 group shadow-xl shadow-white/10"
+              className="flex-1 sm:flex-none px-6 py-3.5 rounded-full bg-[var(--btn-primary-bg)] text-[var(--btn-primary-text)] font-black text-base hover:bg-[var(--btn-primary-hover)] active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 group shadow-xl shadow-white/10"
             >
               Selected Works
             </a>
@@ -100,7 +100,7 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
                   document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
                 }
               }}
-              className="flex-1 sm:flex-none px-6 py-3.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-black text-base transition-all duration-300 flex items-center justify-center gap-2 group shadow-xl shadow-blue-500/20"
+              className="flex-1 sm:flex-none px-6 py-3.5 rounded-full bg-[var(--btn-secondary-bg)] hover:bg-[var(--btn-secondary-hover)] text-[var(--btn-secondary-text)] font-black text-base transition-all duration-300 flex items-center justify-center gap-2 group shadow-xl shadow-blue-500/20"
             >
               Get in Touch
               <Send className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" size={18} />
@@ -118,7 +118,7 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-zinc-500 hover:text-white transition-all hover:scale-110 active:scale-95"
+                  className="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-all hover:scale-110 active:scale-95"
                   title={item.label}
                 >
                   <item.icon size={26} strokeWidth={2.2} />
@@ -137,11 +137,11 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
       >
         <div className="relative group">
           {/* Corner Accents */}
-          <div className="absolute -top-3 -left-3 w-10 h-10 border-t-2 border-l-2 border-blue-500/60 z-20 transition-transform group-hover:rotate-12" />
-          <div className="absolute -bottom-3 -right-3 w-10 h-10 border-b-2 border-r-2 border-blue-500/60 z-20 transition-transform group-hover:-rotate-12" />
+          <div className="absolute -top-3 -left-3 w-10 h-10 border-t-2 border-l-2 border-blue-500/60 z-20 transition-transform group-hover:rotate-12 dark:border-blue-500/60" />
+          <div className="absolute -bottom-3 -right-3 w-10 h-10 border-b-2 border-r-2 border-blue-500/60 z-20 transition-transform group-hover:-rotate-12 dark:border-blue-500/60" />
 
           {/* Avatar Container */}
-          <div className="relative w-[300px] md:w-[340px] lg:w-[380px] aspect-square rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-zinc-950">
+          <div className="relative w-[300px] md:w-[340px] lg:w-[380px] aspect-square rounded-3xl overflow-hidden border border-[var(--glass-border)] shadow-2xl bg-[var(--glass-bg)]">
             <img
               src={personalInfo.avatarUrl}
               alt={personalInfo.name}
@@ -156,7 +156,7 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
           </div>
 
           {/* Glow */}
-          <div className="absolute -inset-12 bg-blue-500/10 blur-[90px] rounded-full -z-10 opacity-0 group-hover:opacity-80 transition-opacity duration-700" />
+          <div className="absolute -inset-12 bg-[var(--avatar-glow)] blur-[90px] rounded-full -z-10 opacity-0 group-hover:opacity-80 transition-opacity duration-700" />
         </div>
       </motion.div>
     </motion.section>

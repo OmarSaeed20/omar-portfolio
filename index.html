@@ -38,6 +38,20 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/OS_logo.png" />
   <link rel="shortcut icon" href="/assets/OS_logo.png" type="image/png" />
 
+  <!-- Prevent FOUC: Apply theme class before React hydrates -->
+  <script>
+    (function() {
+      var theme = localStorage.getItem('theme');
+      if (theme === 'light') {
+        document.documentElement.classList.add('light');
+        document.documentElement.classList.remove('dark');
+      } else {
+        document.documentElement.classList.add('dark');
+        document.documentElement.classList.remove('light');
+      }
+    })();
+  </script>
+
   <title>Omar Saeed - Flutter Developer</title>
 </head>
 

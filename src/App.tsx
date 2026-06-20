@@ -10,8 +10,10 @@ import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 
 import { Routes, Route, Navigate } from "react-router-dom";
+import { useTheme } from "./context/ThemeContext";
 
 const App = () => {
+  const { theme } = useTheme();
   const [terminalMode, setTerminalMode] = useState(() => {
     if (typeof window !== "undefined") {
       return localStorage.getItem("terminal-mode") === "true";
@@ -50,7 +52,7 @@ const App = () => {
   };
 
   return (
-    <div className="w-full min-h-screen bg-[#050505] text-white relative">
+    <div className="w-full min-h-screen bg-[var(--background)] text-[var(--foreground)] relative transition-colors duration-300">
       <GlobalBackground />
       <Navbar
         terminalMode={terminalMode}
@@ -77,7 +79,7 @@ const App = () => {
                 <div>
                   <Projects />
                   <div className="flex justify-center pb-24">
-                    <a href="/" className="px-8 py-4 rounded-full border border-white/10 text-zinc-400 font-bold hover:bg-white/5 hover:text-white transition-all">
+                    <a href="/" className="px-8 py-4 rounded-full border border-[var(--glass-border)] text-[var(--text-muted)] font-bold hover:bg-[var(--glass-bg-hover)] hover:text-[var(--text-primary)] transition-all">
                       ← Back to Home
                     </a>
                   </div>

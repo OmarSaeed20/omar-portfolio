@@ -26,7 +26,7 @@ const About = () => {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-3xl md:text-5xl lg:text-6xl font-black mb-6 text-white tracking-tighter"
+            className="text-3xl md:text-5xl lg:text-6xl font-black mb-6 text-[var(--text-primary)] tracking-tighter"
           >
             Who Am I
           </motion.h2>
@@ -34,7 +34,7 @@ const About = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="text-base md:text-lg lg:text-xl text-zinc-500 max-w-2xl mx-auto font-medium"
+            className="text-base md:text-lg lg:text-xl text-[var(--text-muted)] max-w-2xl mx-auto font-medium"
           >
             A chronological journey through professional evolution and engineering milestones — from first lines of code to 16+ production apps.
           </motion.p>
@@ -47,14 +47,14 @@ const About = () => {
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.6 }}
-              className="text-base md:text-xl lg:text-2xl text-zinc-400 leading-relaxed font-medium"
+              className="text-base md:text-xl lg:text-2xl text-[var(--text-secondary)] leading-relaxed font-medium"
             >
               {personalInfo.aboutText1}
               <a
                 href={personalInfo.collegeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-blue-500 underline decoration-blue-500/30 transition-colors"
+                className="text-[var(--text-primary)] hover:text-blue-500 underline decoration-blue-500/30 transition-colors"
               >
                 {personalInfo.college}
               </a>
@@ -69,7 +69,7 @@ const About = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ delay: i * 0.05, duration: 0.4 }}
-                className="px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest border border-white/5 bg-white/[0.02] text-zinc-500 hover:text-white hover:border-blue-500/30 transition-all duration-300"
+                className="px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest border border-[var(--glass-fact-border)] bg-[var(--glass-fact-bg)] text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:border-blue-500/30 transition-all duration-300"
               >
                 {fact}
               </motion.div>
@@ -86,7 +86,7 @@ const About = () => {
         </div>
 
         {/* Timeline Grid */}
-        <div className="max-w-3xl mx-auto text-left relative border-l border-white/10 ml-4 md:mx-auto pl-8">
+        <div className="max-w-3xl mx-auto text-left relative border-l border-[var(--glass-border)] ml-4 md:mx-auto pl-8">
           {timeline.map((item, i) => {
             const hasMore = "more" in item && typeof item.more === "string";
 
@@ -99,15 +99,15 @@ const About = () => {
                 className="mb-10 relative group last:mb-0"
               >
                 {/* Node Dot */}
-                <span className="absolute flex h-4 w-4 rounded-full bg-black border-2 border-blue-600 -left-[41px] top-1.5 transition-all duration-500 group-hover:bg-blue-600 shadow-[0_0_15px_rgba(37,99,235,0.3)]" />
+                <span className="absolute flex h-4 w-4 rounded-full bg-[var(--background)] border-2 border-blue-600 -left-[41px] top-1.5 transition-all duration-500 group-hover:bg-blue-600 shadow-[0_0_15px_rgba(37,99,235,0.3)]" />
 
                 <div className="flex flex-col gap-2">
-                  <span className="text-xs font-black text-zinc-500 uppercase tracking-widest">
+                  <span className="text-xs font-black text-[var(--text-muted)] uppercase tracking-widest">
                     {item.year}
                   </span>
 
-                  <div className="p-4 rounded-3xl border border-white/5 bg-white/[0.01] hover:bg-white/[0.03] hover:border-white/10 transition-all duration-500 relative overflow-hidden">
-                    <p className="text-lg md:text-xl font-bold text-white leading-relaxed">
+                  <div className="p-4 rounded-3xl border border-[var(--glass-border)] bg-[var(--glass-bg)] hover:bg-[var(--glass-bg-hover)] hover:border-[var(--glass-border-hover)] transition-all duration-500 relative overflow-hidden">
+                    <p className="text-lg md:text-xl font-bold text-[var(--text-primary)] leading-relaxed">
                       {item.detail}
                     </p>
 
@@ -117,7 +117,7 @@ const About = () => {
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
                           exit={{ opacity: 0, height: 0 }}
-                          className="text-zinc-500 mt-2 text-base leading-relaxed"
+                          className="text-[var(--text-muted)] mt-2 text-base leading-relaxed"
                         >
                           {item.more}
                         </motion.p>

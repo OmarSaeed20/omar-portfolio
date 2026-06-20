@@ -18,7 +18,7 @@ const Skills = () => {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-3xl md:text-5xl lg:text-6xl font-black mb-6 text-white tracking-tighter"
+            className="text-3xl md:text-5xl lg:text-6xl font-black mb-6 text-[var(--text-primary)] tracking-tighter"
           >
             My Stack
           </motion.h2>
@@ -26,7 +26,7 @@ const Skills = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="text-base md:text-lg lg:text-xl text-zinc-500 max-w-2xl mx-auto font-medium"
+            className="text-base md:text-lg lg:text-xl text-[var(--text-muted)] max-w-2xl mx-auto font-medium"
           >
             A curated selection of technologies I use to build high-performance mobile applications.
           </motion.p>
@@ -39,7 +39,7 @@ const Skills = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: categoryIndex * 0.1, duration: 0.6 }}
-              className="p-4 rounded-3xl border border-white/5 bg-white/[0.02] flex flex-col"
+              className="p-4 rounded-3xl border border-[var(--glass-border)] bg-[var(--glass-bg)] flex flex-col"
             >
               <div className="flex items-center gap-4 mb-6">
                 <h3 className="text-sm font-black text-blue-600 uppercase tracking-widest pl-3 border-l-2 border-blue-600">
@@ -54,7 +54,7 @@ const Skills = () => {
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.05, duration: 0.3 }}
-                    className="group flex flex-col items-center gap-2 p-2 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] transition-all duration-300"
+                    className="group flex flex-col items-center gap-2 p-2 rounded-2xl border border-[var(--glass-border)] bg-[var(--glass-bg)] hover:bg-[var(--glass-bg-hover)] transition-all duration-300"
                   >
                     <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center">
                       <img
@@ -63,7 +63,7 @@ const Skills = () => {
                         className={`w-full h-full object-contain ${item.invertDark ? 'invert' : ''}`}
                       />
                     </div>
-                    <span className="text-[10px] sm:text-xs font-bold text-zinc-500 group-hover:text-white transition-colors text-center uppercase tracking-tighter">
+                    <span className="text-[10px] sm:text-xs font-bold text-[var(--text-muted)] group-hover:text-[var(--text-primary)] transition-colors text-center uppercase tracking-tighter">
                       {item.name}
                     </span>
                   </motion.div>

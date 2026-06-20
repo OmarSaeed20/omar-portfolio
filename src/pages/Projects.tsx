@@ -40,7 +40,7 @@ const Projects = ({ limit }: { limit?: number }) => {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-3xl md:text-5xl lg:text-6xl font-black mb-6 text-white tracking-tighter"
+            className="text-3xl md:text-5xl lg:text-6xl font-black mb-6 text-[var(--text-primary)] tracking-tighter"
           >
             Featured Projects
           </motion.h2>
@@ -48,7 +48,7 @@ const Projects = ({ limit }: { limit?: number }) => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="text-base md:text-lg lg:text-xl text-zinc-500 max-w-2xl mx-auto font-medium"
+            className="text-base md:text-lg lg:text-xl text-[var(--text-muted)] max-w-2xl mx-auto font-medium"
           >
             16+ production apps across Android, iOS, and Web — from GPS tracking to workforce management.
           </motion.p>
@@ -61,8 +61,8 @@ const Projects = ({ limit }: { limit?: number }) => {
             className={clsx(
               "px-4 py-2 rounded-full text-sm font-black transition-all duration-300 uppercase tracking-widest border",
               activeCategory === "all"
-                ? "bg-white text-black border-white"
-                : "text-zinc-500 border-white/10 hover:border-white/30 hover:text-white"
+                ? "bg-[var(--btn-primary-bg)] text-[var(--btn-primary-text)] border-[var(--btn-primary-bg)]"
+                : "text-[var(--text-muted)] border-[var(--glass-border)] hover:border-[var(--glass-border-hover)] hover:text-[var(--text-primary)]"
             )}
           >
             All
@@ -74,8 +74,8 @@ const Projects = ({ limit }: { limit?: number }) => {
               className={clsx(
                 "px-6 py-2 rounded-full text-sm font-black transition-all duration-300 uppercase tracking-widest border",
                 activeCategory === cat
-                  ? "bg-white text-black border-white"
-                  : "text-zinc-500 border-white/10 hover:border-white/30 hover:text-white"
+                  ? "bg-[var(--btn-primary-bg)] text-[var(--btn-primary-text)] border-[var(--btn-primary-bg)]"
+                  : "text-[var(--text-muted)] border-[var(--glass-border)] hover:border-[var(--glass-border-hover)] hover:text-[var(--text-primary)]"
               )}
             >
               {cat}
@@ -91,22 +91,22 @@ const Projects = ({ limit }: { limit?: number }) => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.5 }}
-              className="rounded-3xl p-4 border border-white/5 bg-white/[0.02] hover:border-blue-500/30 hover:bg-white/[0.04] transition-all duration-500 text-left flex flex-col h-full group"
+              className="rounded-3xl p-4 border border-[var(--glass-border)] bg-[var(--glass-bg)] hover:border-blue-500/30 hover:bg-[var(--glass-bg-hover)] transition-all duration-500 text-left flex flex-col h-full group"
             >
               <div className="flex items-start justify-between mb-3">
-                <h3 className="text-2xl font-bold text-white group-hover:text-blue-500 transition-colors">{project.name}</h3>
+                <h3 className="text-2xl font-bold text-[var(--text-primary)] group-hover:text-blue-500 transition-colors">{project.name}</h3>
                 {project.rating && project.rating !== "—" && (
-                  <span className="text-xs font-bold text-zinc-500 whitespace-nowrap ml-2">{project.rating}</span>
+                  <span className="text-xs font-bold text-[var(--text-muted)] whitespace-nowrap ml-2">{project.rating}</span>
                 )}
               </div>
-              <p className="text-base text-zinc-400 mb-4 flex-grow leading-relaxed">
+              <p className="text-base text-[var(--text-secondary)] mb-4 flex-grow leading-relaxed">
                 {project.description || "Building the future of digital experiences."}
               </p>
               <div className="flex flex-wrap gap-1 text-xs mb-4">
                 {project.tech.map((t) => (
                   <span
                     key={t}
-                    className="bg-white/5 border border-white/10 px-3 py-1 rounded-lg text-zinc-300 font-semibold tracking-tight"
+                    className="bg-[var(--glass-tag-bg)] border border-[var(--glass-tag-border)] px-3 py-1 rounded-lg text-[var(--text-secondary)] font-semibold tracking-tight"
                   >
                     {t}
                   </span>
@@ -122,7 +122,7 @@ const Projects = ({ limit }: { limit?: number }) => {
                       href={platform.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-bold text-zinc-400 hover:text-white hover:border-blue-500/30 hover:bg-blue-500/10 transition-all duration-300"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[var(--glass-tag-bg)] border border-[var(--glass-tag-border)] text-xs font-bold text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-blue-500/30 hover:bg-blue-500/10 transition-all duration-300"
                     >
                       {platformIcons[platform.name] || <ExternalLink size={12} />}
                       {platform.name}
@@ -131,13 +131,13 @@ const Projects = ({ limit }: { limit?: number }) => {
                 </div>
               )}
 
-              <div className="flex items-center justify-between mt-auto pt-4 border-t border-white/5">
+                <div className="flex items-center justify-between mt-auto pt-4 border-t border-[var(--glass-border)]">
                 {project.github ? (
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-zinc-500 hover:text-white transition-colors font-bold"
+                    className="flex items-center gap-2 text-sm text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors font-bold"
                   >
                     <Github size={18} /> Source
                   </a>
@@ -163,7 +163,7 @@ const Projects = ({ limit }: { limit?: number }) => {
           <div className="mt-16 flex justify-center">
             <a
               href="/projects"
-              className="px-8 py-3.5 rounded-full border border-white/10 text-white font-black text-base transition-all duration-300 hover:bg-white/5 hover:border-white/30 flex items-center gap-2 group"
+              className="px-8 py-3.5 rounded-full border border-[var(--border)] text-[var(--text-primary)] font-black text-base transition-all duration-300 hover:bg-[var(--accent)] hover:border-[var(--text-muted)] flex items-center gap-2 group"
             >
               View More Projects
               <ArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />

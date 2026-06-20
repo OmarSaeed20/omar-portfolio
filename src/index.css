@@ -3,12 +3,163 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── Base variables (dark defaults for initial paint before class is applied) ── */
 :root {
   --background: #050505;
   --foreground: #ffffff;
   --primary: #3b82f6;
   --muted: #a1a1aa;
   --border: #18181b;
+  --card: #0a0a0a;
+  --card-foreground: #ffffff;
+  --accent: #1e3a5f;
+  --accent-foreground: #60a5fa;
+  --surface: #0a0a0a;
+  --surface-muted: #111111;
+  --grid-color: rgba(255, 255, 255, 0.03);
+  --glow-color: rgba(59, 130, 246, 0.15);
+  --vignette-from: transparent;
+  --vignette-via: rgba(0, 0, 0, 0.4);
+  --vignette-to: rgba(0, 0, 0, 1);
+  --nav-bg: rgba(0, 0, 0, 0.8);
+  --nav-border: rgba(255, 255, 255, 0.1);
+  --nav-shadow: rgba(0, 0, 0, 0.5);
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --btn-primary-bg: #ffffff;
+  --btn-primary-text: #000000;
+  --btn-primary-hover: #e4e4e7;
+  --btn-secondary-bg: #2563eb;
+  --btn-secondary-hover: #1d4ed8;
+  --btn-secondary-text: #ffffff;
+  --badge-bg: rgba(59, 130, 246, 0.1);
+  --badge-border: rgba(59, 130, 246, 0.2);
+  --badge-text: #60a5fa;
+  --avatar-border: rgba(255, 255, 255, 0.1);
+  --avatar-glow: rgba(59, 130, 246, 0.1);
+  --bottom-nav-bg: rgba(0, 0, 0, 0.6);
+  --bottom-nav-border: rgba(255, 255, 255, 0.1);
+  --terminal-bg: #000000;
+  --terminal-text: #00ff41;
+  --terminal-border: rgba(0, 255, 65, 0.3);
+  --glass-bg: rgba(255, 255, 255, 0.02);
+  --glass-bg-hover: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.05);
+  --glass-border-hover: rgba(255, 255, 255, 0.1);
+  --glass-icon-bg: rgba(255, 255, 255, 0.05);
+  --glass-icon-border: rgba(255, 255, 255, 0.05);
+  --glass-tag-bg: rgba(255, 255, 255, 0.05);
+  --glass-tag-border: rgba(255, 255, 255, 0.1);
+  --glass-fact-bg: rgba(255, 255, 255, 0.02);
+  --glass-fact-border: rgba(255, 255, 255, 0.05);
+  color-scheme: dark;
+}
+
+/* ── Light Theme ── */
+.light {
+  --background: #f8f9fa;
+  --foreground: #111111;
+  --primary: #2563eb;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --card: #ffffff;
+  --card-foreground: #111111;
+  --accent: #eff6ff;
+  --accent-foreground: #1e40af;
+  --surface: #ffffff;
+  --surface-muted: #f3f4f6;
+  --grid-color: rgba(0, 0, 0, 0.06);
+  --glow-color: rgba(37, 99, 235, 0.08);
+  --vignette-from: transparent;
+  --vignette-via: rgba(0, 0, 0, 0.05);
+  --vignette-to: rgba(0, 0, 0, 0.1);
+  --nav-bg: rgba(255, 255, 255, 0.8);
+  --nav-border: rgba(0, 0, 0, 0.08);
+  --nav-shadow: rgba(0, 0, 0, 0.06);
+  --text-primary: #111111;
+  --text-secondary: #4b5563;
+  --text-muted: #9ca3af;
+  --btn-primary-bg: #111111;
+  --btn-primary-text: #ffffff;
+  --btn-primary-hover: #333333;
+  --btn-secondary-bg: #2563eb;
+  --btn-secondary-hover: #1d4ed8;
+  --btn-secondary-text: #ffffff;
+  --badge-bg: rgba(37, 99, 235, 0.1);
+  --badge-border: rgba(37, 99, 235, 0.2);
+  --badge-text: #2563eb;
+  --avatar-border: rgba(0, 0, 0, 0.1);
+  --avatar-glow: rgba(37, 99, 235, 0.1);
+  --bottom-nav-bg: rgba(255, 255, 255, 0.7);
+  --bottom-nav-border: rgba(0, 0, 0, 0.08);
+  --terminal-bg: #1a1a2e;
+  --terminal-text: #00ff41;
+  --terminal-border: rgba(0, 255, 65, 0.3);
+  --glass-bg: rgba(0, 0, 0, 0.02);
+  --glass-bg-hover: rgba(0, 0, 0, 0.04);
+  --glass-border: rgba(0, 0, 0, 0.06);
+  --glass-border-hover: rgba(0, 0, 0, 0.12);
+  --glass-icon-bg: rgba(0, 0, 0, 0.04);
+  --glass-icon-border: rgba(0, 0, 0, 0.06);
+  --glass-tag-bg: rgba(0, 0, 0, 0.04);
+  --glass-tag-border: rgba(0, 0, 0, 0.08);
+  --glass-fact-bg: rgba(0, 0, 0, 0.02);
+  --glass-fact-border: rgba(0, 0, 0, 0.06);
+  color-scheme: light;
+}
+
+/* ── Dark Theme (default) ── */
+.dark {
+  --background: #050505;
+  --foreground: #ffffff;
+  --primary: #3b82f6;
+  --muted: #a1a1aa;
+  --border: #18181b;
+  --card: #0a0a0a;
+  --card-foreground: #ffffff;
+  --accent: #1e3a5f;
+  --accent-foreground: #60a5fa;
+  --surface: #0a0a0a;
+  --surface-muted: #111111;
+  --grid-color: rgba(255, 255, 255, 0.03);
+  --glow-color: rgba(59, 130, 246, 0.15);
+  --vignette-from: transparent;
+  --vignette-via: rgba(0, 0, 0, 0.4);
+  --vignette-to: rgba(0, 0, 0, 1);
+  --nav-bg: rgba(0, 0, 0, 0.8);
+  --nav-border: rgba(255, 255, 255, 0.1);
+  --nav-shadow: rgba(0, 0, 0, 0.5);
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --btn-primary-bg: #ffffff;
+  --btn-primary-text: #000000;
+  --btn-primary-hover: #e4e4e7;
+  --btn-secondary-bg: #2563eb;
+  --btn-secondary-hover: #1d4ed8;
+  --btn-secondary-text: #ffffff;
+  --badge-bg: rgba(59, 130, 246, 0.1);
+  --badge-border: rgba(59, 130, 246, 0.2);
+  --badge-text: #60a5fa;
+  --avatar-border: rgba(255, 255, 255, 0.1);
+  --avatar-glow: rgba(59, 130, 246, 0.1);
+  --bottom-nav-bg: rgba(0, 0, 0, 0.6);
+  --bottom-nav-border: rgba(255, 255, 255, 0.1);
+  --terminal-bg: #000000;
+  --terminal-text: #00ff41;
+  --terminal-border: rgba(0, 255, 65, 0.3);
+  --glass-bg: rgba(255, 255, 255, 0.02);
+  --glass-bg-hover: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.05);
+  --glass-border-hover: rgba(255, 255, 255, 0.1);
+  --glass-icon-bg: rgba(255, 255, 255, 0.05);
+  --glass-icon-border: rgba(255, 255, 255, 0.05);
+  --glass-tag-bg: rgba(255, 255, 255, 0.05);
+  --glass-tag-border: rgba(255, 255, 255, 0.1);
+  --glass-fact-bg: rgba(255, 255, 255, 0.02);
+  --glass-fact-border: rgba(255, 255, 255, 0.05);
+  color-scheme: dark;
 }
 
 body {
@@ -16,12 +167,43 @@ body {
   color: var(--foreground);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.dark {
-  --background: #050505;
-  --foreground: #ffffff;
-  --primary: #3b82f6;
+/* Smooth theme transition on all themed elements */
+*, *::before, *::after {
+  transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+  transition-duration: 0.15s;
+  transition-timing-function: ease;
+}
+
+/* Disable transitions on page load to prevent FOUC flash */
+.no-transition *, .no-transition *::before, .no-transition *::after {
+  transition: none !important;
+}
+
+/* Light mode specific overrides */
+.light .glow-nav {
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.2);
+}
+
+/* Light mode: reduce glow intensity */
+.light .animate-pulse-slow {
+  opacity: 0.5;
+}
+
+/* ── Glass Card Utility ── */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-hover);
 }
 
 

@@ -7,6 +7,12 @@ const config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
         primary: "var(--primary)",
+        muted: "var(--muted)",
+        border: "var(--border)",
+        card: "var(--card)",
+        "card-foreground": "var(--card-foreground)",
+        accent: "var(--accent)",
+        "accent-foreground": "var(--accent-foreground)",
       },
       animation: {
         blink: "blink 1s step-start infinite",

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Terminal, Github, Star } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 
 type Props = {
   terminalMode: boolean;
@@ -40,9 +41,9 @@ const Navbar = ({ terminalMode, setTerminalMode, uiType, setUiType }: Props) => 
         }`}>
         <div
           className={`relative flex items-center justify-between px-2 sm:px-4 transition-all duration-500 ${terminalMode
-            ? "bg-black text-green-400 border-b border-green-500/30 rounded-none py-2"
+            ? "bg-[var(--terminal-bg)] text-[var(--terminal-text)] border-b border-[var(--terminal-border)] rounded-none py-2"
             : `py-3 rounded-2xl border ${scrolled
-              ? "bg-black/80 backdrop-blur-xl border-white/10 shadow-2xl"
+              ? "bg-[var(--nav-bg)] backdrop-blur-xl border-[var(--nav-border)] shadow-2xl"
               : "bg-transparent border-transparent"
             }`
             }`}
@@ -57,13 +58,13 @@ const Navbar = ({ terminalMode, setTerminalMode, uiType, setUiType }: Props) => 
             }}
             className="flex items-center gap-2 group"
           >
-            <div className={`rounded-xl overflow-hidden transition-all duration-300 ${terminalMode ? "ring-2 ring-green-500/50" : "ring-2 ring-white/10 group-hover:ring-blue-500/50"
+            <div className={`rounded-xl overflow-hidden transition-all duration-300 ${terminalMode ? "ring-2 ring-green-500/50" : "ring-2 ring-[var(--avatar-border)] group-hover:ring-blue-500/50"
               }`}>
               <img src="/assets/OS_logo.png" alt="OS Logo" className="w-10 h-10 object-contain" />
             </div>
             <div className="relative">
-              <span className="font-black text-2xl tracking-tighter uppercase text-white flex items-baseline">
-                OS<span className={`text-[17px] ml-0.5 transition-colors ${terminalMode ? "text-zinc-500 group-hover:text-green-500" : "text-zinc-500 group-hover:text-blue-500"}`}>20</span>
+              <span className="font-black text-2xl tracking-tighter uppercase text-[var(--text-primary)] flex items-baseline">
+                OS<span className={`text-[17px] ml-0.5 transition-colors ${terminalMode ? "text-zinc-500 group-hover:text-green-500" : "text-[var(--text-muted)] group-hover:text-blue-500"}`}>20</span>
               </span>
               <div className={`absolute -bottom-0.5 left-0 h-1 rounded-full transition-all duration-300 w-0 group-hover:w-full ${terminalMode ? "bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)]" : "bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.5)]"}`} />
             </div>
@@ -91,22 +92,24 @@ const Navbar = ({ terminalMode, setTerminalMode, uiType, setUiType }: Props) => 
             <a
               href="https://github.com/OmarSaeed20"
               target="_blank"
-              className="flex items-center gap-2 px-3 py-1.5 rounded-xl border border-white/5 bg-white/5 hover:bg-white/10 transition-all group"
+              className="flex items-center gap-2 px-3 py-1.5 rounded-xl border border-[var(--glass-border)] bg-[var(--glass-bg)] hover:bg-[var(--glass-bg-hover)] transition-all group"
             >
-              <Github size={22} className="text-zinc-400 group-hover:text-white transition-colors" />
+              <Github size={22} className="text-[var(--text-muted)] group-hover:text-[var(--text-primary)] transition-colors" />
               {stars !== null && (
-                <span className="flex items-center text-base font-black text-zinc-500 group-hover:text-white transition-colors">
+                <span className="flex items-center text-base font-black text-[var(--text-muted)] group-hover:text-[var(--text-primary)] transition-colors">
                   <Star size={18} className="text-yellow-500 fill-yellow-500 mr-1" />
                   {stars}
                 </span>
               )}
             </a>
 
+            <ThemeToggle />
+
             <button
               onClick={() => setTerminalMode(!terminalMode)}
               className={`p-2 rounded-xl border transition-all duration-300 ${terminalMode
-                ? "border-green-500/50 bg-green-500/20 text-green-400"
-                : "border-white/5 bg-white/5 text-zinc-400 hover:text-white hover:border-white/20"
+                ? "border-[var(--terminal-border)] bg-green-500/20 text-green-400"
+                : "border-[var(--glass-border)] bg-[var(--glass-bg)] text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--glass-bg-hover)]"
                 }`}
               title="Toggle Terminal"
             >
