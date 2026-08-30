@@ -6,7 +6,7 @@ import { Github, ArrowUpRight, ExternalLink, Smartphone, Globe } from "lucide-re
 import clsx from "clsx";
 import { projectData } from "../data/userData";
 
-const categories = Array.from(new Set(projectData.map((p) => p.category)));
+const categories = ["Mobile", "Web"] as const;
 
 const platformIcons: Record<string, React.ReactNode> = {
   "Google Play": <Smartphone size={12} />,
@@ -21,7 +21,7 @@ const Projects = ({ limit }: { limit?: number }) => {
   const [activeCategory, setActiveCategory] = useState("all");
 
   const filteredProjects = projectData.filter(
-    (p) => activeCategory === "all" || p.category === activeCategory
+    (p) => activeCategory === "all" || p.category.includes(activeCategory)
   );
 
   const displayProjects = limit ? filteredProjects.slice(0, limit) : filteredProjects;
@@ -95,9 +95,6 @@ const Projects = ({ limit }: { limit?: number }) => {
             >
               <div className="flex items-start justify-between mb-3">
                 <h3 className="text-2xl font-bold text-[var(--text-primary)] group-hover:text-blue-500 transition-colors">{project.name}</h3>
-                {project.rating && project.rating !== "—" && (
-                  <span className="text-xs font-bold text-[var(--text-muted)] whitespace-nowrap ml-2">{project.rating}</span>
-                )}
               </div>
               <p className="text-base text-[var(--text-secondary)] mb-4 flex-grow leading-relaxed">
                 {project.description || "Building the future of digital experiences."}

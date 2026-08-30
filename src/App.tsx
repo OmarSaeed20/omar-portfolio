@@ -2,9 +2,11 @@ import { useState } from "react";
 import Navbar from "./components/Navbar";
 import GlobalBackground from "./components/Background";
 import BottomNavBar from "./components/BottomNavBar";
+import Footer from "./components/Footer";
 import TerminalMode from "./terminal/TerminalMode";
 import Hero from "./sections/Hero";
 import About from "./pages/About";
+import Experience from "./pages/Experience";
 import Skills from "./pages/Skills";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
@@ -44,6 +46,7 @@ const App = () => {
     switch (activeTab) {
       case "home": return <Hero uiType={uiType} onTabChange={setActiveTab} />;
       case "about": return <About />;
+      case "experience": return <Experience />;
       case "skills": return <Skills />;
       case "projects": return <Projects />;
       case "contact": return <Contact />;
@@ -69,9 +72,11 @@ const App = () => {
                 <>
                   <section id="home"><Hero uiType={uiType} onTabChange={setActiveTab} /></section>
                   <section id="about"><About /></section>
+                  <section id="experience"><Experience /></section>
                   <section id="projects"><Projects limit={4} /></section>
                   <section id="skills"><Skills /></section>
                   <section id="contact"><Contact /></section>
+                  <Footer />
                   <BottomNavBar />
                 </>
               } />
