@@ -117,7 +117,7 @@ This project is open source and available under the [MIT License](LICENSE).
 **⭐ Star this repository if you found it helpful!**
 
 [![GitHub](https://img.shields.io/badge/GitHub-OmarSaeed20-black?style=for-the-badge&logo=github&logoColor=white)](https://github.com/OmarSaeed20)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Omar_Saeed-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/omar-saeed-5a25491ba)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Omar_Saeed-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/omar-saied-5a25491ba)
 [![Email](https://img.shields.io/badge/Email-omarhamode106@gmail.com-red?style=for-the-badge&logo=gmail&logoColor=white)](mailto:omarhamode106@gmail.com)
 
 </div>
