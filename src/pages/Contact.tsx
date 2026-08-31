@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { contactItems, resume } from "../data/userData";
+import { contactItems } from "../data/userData";
 import { ArrowUpRight } from "lucide-react";
 
 const Contact = () => {
@@ -19,36 +19,32 @@ const Contact = () => {
             transition={{ duration: 0.5 }}
             className="text-3xl md:text-5xl lg:text-6xl font-black mb-6 text-[var(--text-primary)] tracking-tighter"
           >
-            Get In Touch
+            Let's Talk
           </motion.h2>
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-            className="text-base md:text-lg lg:text-xl text-[var(--text-muted)] max-w-2xl mx-auto font-medium"
-          >
-            Let's build something great together. I'm always open to new opportunities and collaborations — especially in Flutter and mobile development.
-          </motion.p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8 items-start">
-          {/* LEFT SIDE - MESSAGE */}
+          {/* LEFT SIDE - VALUE-DRIVEN MESSAGE */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             className="text-left space-y-4"
           >
-            <h3 className="text-3xl md:text-5xl font-black leading-tight text-[var(--text-primary)] tracking-tighter">
-              Let's build <span className="text-blue-600 text-glow">amazing</span> apps.
+            <h3 className="text-2xl md:text-4xl font-black leading-tight text-[var(--text-primary)] tracking-tighter">
+              Need someone who can own more than the <span className="text-blue-600 text-glow">Flutter UI</span>?
             </h3>
 
-            <p className="text-lg md:text-2xl text-[var(--text-secondary)] font-medium max-w-md leading-relaxed">
-              Open for Flutter opportunities or just a meaningful chat.
+            <p className="text-lg md:text-xl text-[var(--text-secondary)] font-medium max-w-md leading-relaxed">
+              If you're building a product where architecture, realtime behavior, performance and production reliability matter, I'd like to hear about it.
+            </p>
+
+            <p className="text-sm text-[var(--text-muted)] font-semibold">
+              Senior / Lead Flutter · Product engineering · Remote / Hybrid · Full-time / Selected consulting
             </p>
 
             {/* CTA BUTTONS */}
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2 pt-2">
               <a
                 href="mailto:omarhamode106@gmail.com"
                 className="px-6 py-3.5 rounded-full bg-[var(--btn-primary-bg)] text-[var(--btn-primary-text)] font-black text-base transition-all duration-300 hover:bg-[var(--btn-primary-hover)] hover:-translate-y-1 flex items-center gap-2 group"
@@ -56,7 +52,7 @@ const Contact = () => {
                 Start a Conversation
               </a>
               <a
-                href={resume["flutter-developer"]}
+                href="/assets/Omar-Saeed-Senior-Flutter-Engineer-Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3.5 text-[var(--text-primary)] border border-[var(--border)] rounded-full font-black text-base hover:bg-[var(--accent)] hover:-translate-y-1 transition-all duration-300"

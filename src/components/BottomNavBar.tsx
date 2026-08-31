@@ -1,18 +1,18 @@
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
-  HomeIcon,
   Info,
   FolderKanban,
   ContactRound,
-  Target,
+  Briefcase,
+  Wrench,
 } from "lucide-react";
 
 const navItems = [
-  { name: "Home", id: "home", icon: HomeIcon },
+  { name: "Work", id: "projects", icon: FolderKanban },
+  { name: "Experience", id: "experience", icon: Briefcase },
+  { name: "Engineering", id: "skills", icon: Wrench },
   { name: "About", id: "about", icon: Info },
-  { name: "Projects", id: "projects", icon: FolderKanban },
-  { name: "Skills", id: "skills", icon: Target },
   { name: "Contact", id: "contact", icon: ContactRound },
 ];
 
@@ -22,7 +22,7 @@ type Props = {
 };
 
 const BottomNavBar = ({ forcedTab, setForcedTab }: Props) => {
-  const [activeSection, setActiveSection] = useState("home");
+  const [activeSection, setActiveSection] = useState("projects");
 
   useEffect(() => {
     if (forcedTab) {

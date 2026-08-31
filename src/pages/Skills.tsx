@@ -1,22 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { skills, type SkillLevel } from "../data/userData";
-
-const levelStyles: Record<
-  SkillLevel,
-  { ring: string }
-> = {
-  Expert: {
-    ring: "group-hover:shadow-[0_0_20px_rgba(16,185,129,0.35)] group-hover:border-emerald-500/40",
-  },
-  Advanced: {
-    ring: "group-hover:shadow-[0_0_18px_rgba(59,130,246,0.30)] group-hover:border-blue-500/40",
-  },
-  Intermediate: {
-    ring: "group-hover:shadow-[0_0_16px_rgba(245,158,11,0.25)] group-hover:border-amber-500/40",
-  },
-};
+import { engineeringCapabilities, aiEngineering } from "../data/userData";
+import { Wrench, Brain, ArrowUpRight } from "lucide-react";
 
 const Skills = () => {
   return (
@@ -39,7 +25,7 @@ const Skills = () => {
             transition={{ duration: 0.5 }}
             className="text-3xl md:text-5xl lg:text-6xl font-black mb-6 text-[var(--text-primary)] tracking-tighter"
           >
-            My Stack
+            Engineering Strengths
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
@@ -47,68 +33,75 @@ const Skills = () => {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="text-base md:text-lg lg:text-xl text-[var(--text-muted)] max-w-2xl mx-auto font-medium"
           >
-            A curated selection of technologies I use to build high-performance mobile applications.
+            Capabilities backed by evidence from actual projects — not a wall of logos.
           </motion.p>
         </div>
 
-        {/* Categories */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-          {skills.map((categoryGroup, categoryIndex) => (
+        {/* Capabilities Grid */}
+        <div className="grid md:grid-cols-2 gap-4 sm:gap-6 mb-16">
+          {engineeringCapabilities.map((cap, i) => (
             <motion.div
-              key={categoryGroup.category}
+              key={cap.capability}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: categoryIndex * 0.08, duration: 0.6 }}
+              transition={{ delay: i * 0.08, duration: 0.6 }}
               viewport={{ once: true, margin: "-50px" }}
-              className="p-4 sm:p-5 rounded-3xl border border-[var(--glass-border)] bg-[var(--glass-bg)] flex flex-col hover:border-[var(--glass-border-hover)] transition-colors duration-300"
+              className="p-5 sm:p-6 rounded-3xl border border-[var(--glass-border)] bg-[var(--glass-bg)] hover:border-blue-500/30 transition-all duration-500"
             >
-              <div className="flex items-start justify-between gap-3 mb-5">
-                <div className="flex flex-col">
-                  <h3 className="text-sm font-black text-blue-600 uppercase tracking-widest pl-3 border-l-2 border-blue-600">
-                    {categoryGroup.category}
-                  </h3>
-                  <span className="text-xs text-[var(--text-muted)] font-medium mt-1 pl-3">
-                    {categoryGroup.description}
-                  </span>
-                </div>
-                <span className="text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-widest px-2 py-1 rounded-full border border-[var(--glass-border)]">
-                  {categoryGroup.items.length}
-                </span>
+              <div className="flex items-center gap-2 mb-3">
+                <Wrench size={18} className="text-blue-400" />
+                <h3 className="text-lg font-black text-[var(--text-primary)] tracking-tight">
+                  {cap.capability}
+                </h3>
               </div>
-
-              <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 sm:gap-3">
-                {categoryGroup.items.map((item, index) => {
-                  const lvl = levelStyles[item.level];
-                  return (
-                    <motion.div
-                      key={item.name}
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.04, duration: 0.3 }}
-                      viewport={{ once: true }}
-                      className={`group relative flex flex-col items-center gap-2 p-2 sm:p-3 rounded-2xl border border-[var(--glass-border)] bg-[var(--glass-bg)] hover:bg-[var(--glass-bg-hover)] transition-all duration-300 ${lvl.ring}`}
+              <p className="text-sm text-[var(--text-muted)] leading-relaxed mb-4">
+                {cap.description}
+              </p>
+              <div>
+                <p className="text-[10px] font-black uppercase tracking-widest text-[var(--text-muted)] mb-2">
+                  Used in
+                </p>
+                <div className="flex flex-wrap gap-1.5">
+                  {cap.evidence.map((proj, idx) => (
+                    <span
+                      key={idx}
+                      className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-[var(--glass-tag-bg)] border border-[var(--glass-tag-border)] text-xs font-bold text-[var(--text-secondary)]"
                     >
-                      <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center">
-                        <img
-                          src={item.icon}
-                          alt={item.name}
-                          className={`w-full h-full object-contain ${item.invertDark ? "invert" : ""}`}
-                        />
-                      </div>
-                      <span className="text-[10px] sm:text-xs font-bold text-[var(--text-muted)] group-hover:text-[var(--text-primary)] transition-colors text-center uppercase tracking-tighter leading-tight">
-                        {item.name}
-                      </span>
-                      {item.years ? (
-                        <span className="absolute top-1.5 right-1.5 text-[8px] font-bold text-[var(--text-muted)] opacity-0 group-hover:opacity-100 transition-opacity">
-                          {item.years}y
-                        </span>
-                      ) : null}
-                    </motion.div>
-                  );
-                })}
+                      {proj}
+                    </span>
+                  ))}
+                </div>
               </div>
             </motion.div>
           ))}
+        </div>
+
+        {/* AI-Augmented Engineering */}
+        <div>
+          <div className="flex items-center gap-2 mb-6">
+            <Brain size={18} className="text-blue-400" />
+            <h3 className="text-sm font-black uppercase tracking-widest text-[var(--text-muted)]">
+              AI-Augmented Engineering
+            </h3>
+          </div>
+          <div className="grid md:grid-cols-2 gap-4">
+            {aiEngineering.map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.08, duration: 0.5 }}
+                className="p-5 rounded-2xl border border-[var(--glass-border)] bg-[var(--glass-bg)] hover:border-blue-500/30 transition-all duration-500"
+              >
+                <h4 className="text-base font-bold text-[var(--text-primary)] mb-2">
+                  {item.question}
+                </h4>
+                <p className="text-sm text-[var(--text-muted)] leading-relaxed">
+                  {item.answer}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </motion.div>
     </section>

@@ -5,6 +5,7 @@ import BottomNavBar from "./components/BottomNavBar";
 import Footer from "./components/Footer";
 import TerminalMode from "./terminal/TerminalMode";
 import Hero from "./sections/Hero";
+import EngineeringNotes from "./sections/EngineeringNotes";
 import About from "./pages/About";
 import Experience from "./pages/Experience";
 import Skills from "./pages/Skills";
@@ -35,7 +36,7 @@ const App = () => {
     localStorage.setItem("terminal-mode", String(value));
   };
 
-  const [activeTab, setActiveTab] = useState("home");
+  const [activeTab, setActiveTab] = useState("projects");
 
   const handleUiToggle = (type: "landing" | "modular") => {
     setUiType(type);
@@ -50,7 +51,7 @@ const App = () => {
       case "skills": return <Skills />;
       case "projects": return <Projects />;
       case "contact": return <Contact />;
-      default: return <Hero uiType={uiType} onTabChange={setActiveTab} />;
+      default: return <Projects />;
     }
   };
 
@@ -72,11 +73,13 @@ const App = () => {
             <Routes>
               <Route path="/" element={
                 <>
+                  {/* Progressive disclosure: Hero → Work → Engineering strengths → Experience → Engineering notes → About → Contact */}
                   <section id="home"><Hero uiType={uiType} onTabChange={setActiveTab} /></section>
-                  <section id="about"><About /></section>
-                  <section id="experience"><Experience /></section>
-                  <section id="projects"><Projects limit={4} /></section>
+                  <section id="projects"><Projects /></section>
                   <section id="skills"><Skills /></section>
+                  <section id="experience"><Experience /></section>
+                  <EngineeringNotes />
+                  <section id="about"><About /></section>
                   <section id="contact"><Contact /></section>
                   <Footer />
                   <BottomNavBar />

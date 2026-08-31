@@ -1,7 +1,7 @@
 "use client";
-import { Send } from "lucide-react";
+import { Send, FileText, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { personalInfo, contactItems } from "../data/userData";
+import { personalInfo, contactItems, proofRail } from "../data/userData";
 
 type HeroProps = {
   onTabChange?: (tab: string) => void;
@@ -54,16 +54,44 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
             </span>
           </motion.h1>
 
-          {/* Description */}
+          {/* Value Tagline */}
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="text-lg md:text-xl text-[var(--text-secondary)] leading-relaxed max-w-lg"
+            transition={{ delay: 0.35 }}
+            className="text-xl md:text-2xl lg:text-3xl text-[var(--text-primary)] leading-snug max-w-2xl font-bold tracking-tight"
           >
-            {personalInfo.aboutText}
+            {personalInfo.tagline}
+          </motion.p>
+
+          {/* Focus areas */}
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.45 }}
+            className="text-sm md:text-base text-[var(--text-muted)] leading-relaxed max-w-lg font-semibold uppercase tracking-widest"
+          >
+            {personalInfo.focus}
           </motion.p>
         </div>
+
+        {/* Proof Rail */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+          className="flex flex-wrap gap-2 py-1"
+        >
+          {proofRail.map((proof, i) => (
+            <span
+              key={i}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[var(--glass-tag-bg)] border border-[var(--glass-tag-border)] text-xs font-bold text-[var(--text-secondary)]"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-green-500 flex-shrink-0" />
+              {proof}
+            </span>
+          ))}
+        </motion.div>
 
         {/* Actions */}
         <motion.div
@@ -72,7 +100,7 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
           transition={{ delay: 0.6 }}
           className="flex flex-col sm:flex-row items-center gap-4 pt-4"
         >
-          <div className="flex items-center gap-4 w-full sm:w-auto">
+          <div className="flex items-center gap-3 w-full sm:w-auto flex-wrap">
             <a
               href="#projects"
               onClick={(e) => {
@@ -86,7 +114,18 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
               }}
               className="flex-1 sm:flex-none px-6 py-3.5 rounded-full bg-[var(--btn-primary-bg)] text-[var(--btn-primary-text)] font-black text-base hover:bg-[var(--btn-primary-hover)] active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 group shadow-xl shadow-white/10"
             >
-              Selected Works
+              View Case Studies
+              <ArrowRight className="group-hover:translate-x-1 transition-transform" size={18} />
+            </a>
+
+            <a
+              href="/assets/Omar-Saeed-Senior-Flutter-Engineer-Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 sm:flex-none px-6 py-3.5 rounded-full bg-[var(--btn-secondary-bg)] hover:bg-[var(--btn-secondary-hover)] text-[var(--btn-secondary-text)] font-black text-base transition-all duration-300 flex items-center justify-center gap-2 group shadow-xl shadow-blue-500/20"
+            >
+              <FileText size={18} />
+              Resume
             </a>
 
             <a
@@ -100,9 +139,9 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
                   document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
                 }
               }}
-              className="flex-1 sm:flex-none px-6 py-3.5 rounded-full bg-[var(--btn-secondary-bg)] hover:bg-[var(--btn-secondary-hover)] text-[var(--btn-secondary-text)] font-black text-base transition-all duration-300 flex items-center justify-center gap-2 group shadow-xl shadow-blue-500/20"
+              className="flex-1 sm:flex-none px-6 py-3.5 rounded-full border border-[var(--glass-border)] text-[var(--text-primary)] font-black text-base transition-all duration-300 flex items-center justify-center gap-2 group hover:bg-[var(--glass-bg-hover)]"
             >
-              Get in Touch
+              Contact
               <Send className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" size={18} />
             </a>
           </div>

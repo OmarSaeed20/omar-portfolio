@@ -6,7 +6,18 @@ import {
 } from "lucide-react";
 
 // Re-export crawlable plain-JS data (single source of truth for SEO + UI).
-export { personalInfo, skillStats, facts, projectData } from "./crawlable.js";
+export {
+  personalInfo,
+  skillStats,
+  facts,
+  proofRail,
+  engineeringPhilosophy,
+  engineeringCapabilities,
+  engineeringNotes,
+  aiEngineering,
+  careerEvolution,
+  projectData,
+} from "./crawlable.js";
 import { personalInfo } from "./crawlable.js";
 
 export const fetchData = [
@@ -30,10 +41,66 @@ export type Skill = {
   years?: number;
   invertDark?: boolean;
 };
+
+export type EngineeringDecision = {
+  title: string;
+  detail: string;
+};
+
+export type CaseStudy = {
+  context: string;
+  challenge: string;
+  ownership: string[];
+  decisions: EngineeringDecision[];
+  architecture: string[];
+  impact: string[];
+};
+
+export type Project = {
+  name: string;
+  tagline?: string;
+  description: string;
+  tech: string[];
+  live: string;
+  github: string;
+  category: string[];
+  flagship?: boolean;
+  caseStudy?: CaseStudy;
+  platforms: { name: string; url: string }[];
+};
 export type SkillCategory = {
   category: string;
   description: string;
   items: Skill[];
+};
+
+export type EngineeringPhilosophyItem = {
+  principle: string;
+  detail: string;
+};
+
+export type EngineeringCapability = {
+  capability: string;
+  description: string;
+  evidence: string[];
+};
+
+export type EngineeringNote = {
+  title: string;
+  summary: string;
+  tags: string[];
+  readTime: string;
+};
+
+export type AIEngineeringItem = {
+  question: string;
+  answer: string;
+};
+
+export type CareerEvolutionItem = {
+  year: string;
+  milestone: string;
+  detail: string;
 };
 
 export const skills: SkillCategory[] = [
@@ -173,21 +240,21 @@ export const timeline = [
   {
     year: "2026",
     detail:
-      "Senior Flutter Developer at Sourcya — 60+ shipped features across Android, iOS & Web.",
+      "Senior Flutter Engineer at Sourcya — 60+ shipped features across Android, iOS & Web.",
     more:
       "Led API migration across 8+ apps (rehla-operator, madaan-operator, tmt-gps), built the sourcya_in_app_rating Flutter package integrated into 5+ apps, configured Staging/Production flavors for 3 apps, delivered the Rehla Operator app from scratch (trips, routes, drivers, reports with PDF export), built the Mafrooz Hub V3.0 redesign with three-tier responsive system, and enhanced the PlayX ecosystem (playx_network streaming, interceptors, path params). 534 git commits across 22 active repositories in 12 months.",
   },
   {
     year: "2025",
     detail:
-      "Senior Flutter Developer at Sourcya — built multi-app delivery & workforce platforms from scratch.",
+      "Senior Flutter Engineer at Sourcya — built multi-app delivery & workforce platforms from scratch.",
     more:
       "Built the Mafrooz Hub app from scratch (auth, navigation, dashboard, collectors, factories, quotations, orders, settings, transactions, inventory with responsive table system). Scaffolded the Amenaa (SWNW) medical app with doctor visit reports, prescriptions, vitals, and web version. Built TMT GPS vehicle group management. Delivered Nasni entities & building dashboard, Kold live monitor & dashboard, and Rehla Passengers rebranding.",
   },
   {
     year: "2025",
     detail:
-      "Senior Flutter Developer at Mafrooz — performance optimization & recycling platform.",
+      "Senior Flutter Engineer at Mafrooz — performance optimization & waste-tracking logistics platform.",
     more:
       "Led performance optimization efforts. Built the Mafrooz recycling services platform with pickup scheduling and waste tracking.",
   },
@@ -253,23 +320,23 @@ export const contactItems = [
 ];
 
 export const resume = {
-  "flutter-developer": "https://github.com/OmarSaeed20",
+  "flutter-developer": "/assets/Omar-Saeed-Senior-Flutter-Engineer-Resume.pdf",
 };
 
 export const experience = [
   {
     company: "Sourcya",
-    role: "Senior Flutter Developer",
+    role: "Senior Flutter Engineer",
     period: "Sep 2025 – Present",
     description: "Building 22+ multi-app delivery & workforce platforms (TMT Track, Nasni, Kold, Arbeta, Rehla, Ammena, Mafrooz, Madaan). 60+ shipped features across Android, iOS & Web using GetX + PlayX ecosystem.",
     highlights: ["22 repos", "API migration across 8+ apps", "sourcya_in_app_rating package", "PlayX ecosystem enhancements"],
   },
   {
     company: "Mafrooz",
-    role: "Senior Flutter Developer",
+    role: "Senior Flutter Engineer",
     period: "2025",
-    description: "Led performance optimization. Built the recycling services platform with pickup scheduling and waste tracking.",
-    highlights: ["Production recycling platform"],
+    description: "Led performance optimization. Built the pickup & waste-tracking logistics platform with pickup scheduling, collector/factory management, and a three-tier responsive inventory system.",
+    highlights: ["Waste-tracking logistics platform", "Performance optimization"],
   },
   {
     company: "Semicolon",
@@ -289,8 +356,8 @@ export const experience = [
     company: "Drop Me",
     role: "Lead Flutter Developer (Part-time)",
     period: "2023 – Present",
-    description: "Built and maintain a community-driven recycling platform with real-time rewards system and gamification features for sustainable practices. 1K+ downloads, 5-star rating. Ongoing part-time alongside full-time roles.",
-    highlights: ["Real-time rewards & Recycling platform", "1K+ downloads · 5-star rating", "Ongoing part-time"],
+    description: "Led Flutter delivery for the consumer-facing layer of a circular recovery ecosystem — connecting verified recycling actions with real-time rewards, gamification and sustainability engagement across Android & iOS.",
+    highlights: ["Realtime rewards & gamification", "1K+ downloads · 5.0 rating (Aug 2026)", "Ongoing part-time"],
   },
   {
     company: "Freelance",

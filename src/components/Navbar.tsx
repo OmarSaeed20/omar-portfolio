@@ -1,14 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Terminal, Github, Star, HomeIcon, Info, FolderKanban, ContactRound, Target } from "lucide-react";
+import { Terminal, Github, Star, Info, FolderKanban, ContactRound, Briefcase, Wrench, FileText } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 
 export const navItems = [
-  { name: "Home", id: "home", icon: HomeIcon },
+  { name: "Work", id: "projects", icon: FolderKanban },
+  { name: "Experience", id: "experience", icon: Briefcase },
+  { name: "Engineering", id: "skills", icon: Wrench },
   { name: "About", id: "about", icon: Info },
-  { name: "Projects", id: "projects", icon: FolderKanban },
-  { name: "Skills", id: "skills", icon: Target },
   { name: "Contact", id: "contact", icon: ContactRound },
 ];
 
@@ -182,6 +182,20 @@ const Navbar = ({ terminalMode, setTerminalMode, uiType, setUiType, forcedTab, s
                 </span>
               )}
             </a>
+
+            {/* Resume CTA */}
+            {!terminalMode && (
+              <a
+                href="/assets/Omar-Saeed-Senior-Flutter-Engineer-Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[var(--btn-primary-bg)] text-[var(--btn-primary-text)] hover:opacity-90 transition-all font-black text-xs uppercase tracking-widest"
+                title="View Resume"
+              >
+                <FileText size={14} />
+                Resume
+              </a>
+            )}
 
             <ThemeToggle />
 
