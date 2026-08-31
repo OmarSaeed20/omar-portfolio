@@ -130,6 +130,7 @@ export const skills: SkillCategory[] = [
       { name: "Copilot", icon: "https://cdn.simpleicons.org/githubcopilot/1F2328", level: "Expert", invertDark: true },
       { name: "Cursor", icon: "https://cdn.simpleicons.org/cursor/000000", level: "Advanced", invertDark: true },
       { name: "MCP", icon: "https://cdn.simpleicons.org/modelcontextprotocol/D97757", level: "Advanced" },
+      { name: "Composio", icon: "https://composio.dev/logos/composio-black.svg", level: "Advanced", invertDark: true },
       { name: "Anthropic", icon: "https://cdn.simpleicons.org/anthropic/D97757", level: "Intermediate" },
       { name: "Ollama", icon: "https://cdn.simpleicons.org/ollama/000000", level: "Intermediate", invertDark: true },
       { name: "Z.ai", icon: "https://z-cdn.chatglm.cn/z-ai/static/logo.svg", level: "Intermediate" },
