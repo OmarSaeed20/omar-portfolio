@@ -1,7 +1,7 @@
 <p align="center">
   <img src="public/assets/OS_logo.png"  height="128">
   <h2 align="center"><a href="https://omar-portfolio-blond.vercel.app/"> Omar Saeed — Portfolio </a></h2>
-  <p align="center">Flutter Developer Portfolio<p>
+  <p align="center">Senior Flutter Engineer Portfolio<p>
   <p align="center">
    <a href='#'><img src=https://img.shields.io/badge/Maintained%3F-yes-green.svg></img><a/>
   </p>
@@ -9,7 +9,7 @@
 
 ## 🚀 About
 
-Personal portfolio website for **Omar Saeed** — Flutter Developer with 4+ years of experience building production-level mobile applications across Android, iOS, and Web platforms. Showcasing 16+ production apps including TMT Track, Drop Me, Nasni, Kold, Arbeta, and more.
+Personal portfolio website for **Omar Saeed** — Senior Flutter Engineer with 4+ years of experience building production-level mobile applications across Android, iOS, and Web platforms. Showcasing 22+ production apps including TMT Track, Drop Me, Nasni, Kold, Arbeta, Rehla, and more.
 
 ## 🛠️ Tech Stack
 
@@ -22,16 +22,18 @@ Personal portfolio website for **Omar Saeed** — Flutter Developer with 4+ year
 
 ## 📱 Featured Projects
 
-| App | Platform | Downloads | Rating |
-|-----|----------|-----------|---------|
-| **TMT Track** | Android, iOS, Web | 10K+ | ⭐ 5 |
-| **Drop Me** | Android, iOS | 1K+ | ⭐ 5 |
-| **Nasni** | Android, iOS, Web | 500+ | ⭐ 5 |
-| **Kold** | Android, iOS, Web | 500+ | ⭐ 5 |
-| **Arbeta** | Android, iOS | 100+ | ⭐ 5 |
-| **Ammena** | Android, Web | — | — |
-| **Mafrooz** | Web | — | — |
-| **Rehla** | Android, iOS | — | — |
+| App | Platform |
+|-----|----------|
+| **TMT Track** | [Google Play](https://play.google.com/store/apps/details?id=com.altatawwar.tmt.track.app) · [App Store](https://apps.apple.com/ms/app/tmt-live-app/id6749963131) · [Web](https://gps.tmtx.io/) |
+| **Drop Me** | [Google Play](https://play.google.com/store/apps/details?id=com.dropme.recycling) · [App Store](https://apps.apple.com/eg/app/drop-me-recycle-in-seconds/id6748382942) |
+| **Nasni** | [Google Play](https://play.google.com/store/apps/details?id=com.altatawwar.nasni.app) · [App Store](https://apps.apple.com/eg/app/nasni/id6754703562) · [Web](https://app.nasni.io/) |
+| **Kold** | [Google Play](https://play.google.com/store/apps/details?id=com.altatawwar.kold.app) · [App Store](https://apps.apple.com/eg/app/kold/id6754703360) · [Web](https://app.koldx.io/) |
+| **Arbeta** | [Google Play](https://play.google.com/store/apps/details?id=sa.com.altatawwar.arbeta.app) · [App Store](https://apps.apple.com/eg/app/arbeta-workforce/id6746787214) |
+| **Ammena** | [Google Play](https://play.google.com/store/apps/details?id=io.sourcya.swnw.app) · [Web](https://swnw.amenaa.com/) |
+| **Mafrooz** | [Web](https://hub.app.mfroz.com/) |
+| **Rehla** | [Driver - Google Play](https://play.google.com/store/apps/details?id=sa.com.altatawwar.rehla.driver.app) · [Driver - App Store](https://apps.apple.com/eg/app/rehla-driver/id6759146405) · [Passenger - Google Play](https://play.google.com/store/apps/details?id=com.altatawwar.rehla.passenger.app) · [Operator - Web](https://rehla-operator-app.vercel.app/) · [Station - Web](https://rehla-station-app.vercel.app/) |
+
+> 💡 **Also**: Madaan Operator, Rehla Ride, Maydan, PlayX Ecosystem, General Consultation — bringing the total to **22+ production apps**.
 
 ## 🎯 Features
 

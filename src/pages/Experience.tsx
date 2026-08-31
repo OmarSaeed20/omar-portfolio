@@ -6,9 +6,9 @@ import { Briefcase, Package, GitBranch, Smartphone, Layers } from "lucide-react"
 
 const sourcyaProofStats = [
   { icon: Smartphone, label: "Apps Migrated", value: "8+" },
-  { icon: Layers, label: "Features Shipped", value: "60+" },
-  { icon: GitBranch, label: "Repos Touched", value: "22" },
   { icon: Package, label: "Reusable Packages", value: "2+" },
+  { icon: GitBranch, label: "Repos Touched", value: "22" },
+  { icon: Layers, label: "Flavors Configured", value: "3+" },
 ];
 
 const sourcyaContributions = [

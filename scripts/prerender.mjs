@@ -73,6 +73,10 @@ function buildCrawlableHtml(d) {
     })
     .join("");
 
+  // Build a visible static fallback (NOT display:none) so non-JS crawlers
+  // (LinkedIn bot, ATS parsers, AI screeners) see real content in the raw
+  // HTML response. noscript content only renders when JS is disabled, so
+  // normal JS-enabled users never see this block.
   return [
     '<noscript class="prerender-content" aria-hidden="false">',
     '<main style="font-family:system-ui,sans-serif;max-width:800px;margin:0 auto;padding:2rem;color:#fff;background:#000;">',
@@ -85,6 +89,6 @@ function buildCrawlableHtml(d) {
     projectsHtml,
     "</main>",
     "</noscript>",
-    '<style>.prerender-content{display:none}@media (prefers-reduced-motion:no-preference){}.prerender-project{margin:1rem 0;padding:1rem 0;border-top:1px solid #333;}</style>',
+    '<style>.prerender-project{margin:1rem 0;padding:1rem 0;border-top:1px solid #333;}</style>',
   ].join("");
 }

@@ -238,18 +238,11 @@ export const skills: SkillCategory[] = [
 
 export const timeline = [
   {
-    year: "2026",
+    year: "Sep 2025 – Present",
     detail:
-      "Senior Flutter Engineer at Sourcya — 60+ shipped features across Android, iOS & Web.",
+      "Senior Flutter Engineer at Sourcya — multi-app delivery & workforce platforms across Android, iOS & Web.",
     more:
-      "Led API migration across 8+ apps (rehla-operator, madaan-operator, tmt-gps), built the sourcya_in_app_rating Flutter package integrated into 5+ apps, configured Staging/Production flavors for 3 apps, delivered the Rehla Operator app from scratch (trips, routes, drivers, reports with PDF export), built the Mafrooz Hub V3.0 redesign with three-tier responsive system, and enhanced the PlayX ecosystem (playx_network streaming, interceptors, path params). 534 git commits across 22 active repositories in 12 months.",
-  },
-  {
-    year: "2025",
-    detail:
-      "Senior Flutter Engineer at Sourcya — built multi-app delivery & workforce platforms from scratch.",
-    more:
-      "Built the Mafrooz Hub app from scratch (auth, navigation, dashboard, collectors, factories, quotations, orders, settings, transactions, inventory with responsive table system). Scaffolded the Amenaa (SWNW) medical app with doctor visit reports, prescriptions, vitals, and web version. Built TMT GPS vehicle group management. Delivered Nasni entities & building dashboard, Kold live monitor & dashboard, and Rehla Passengers rebranding.",
+      "Joined Sourcya after leading performance optimization at Mafrooz. Led API migration across 8+ apps (rehla-operator, madaan-operator, tmt-gps), built the sourcya_in_app_rating Flutter package integrated into 5+ apps, configured Staging/Production flavors for 3 apps, delivered the Rehla Operator app from scratch (trips, routes, drivers, reports with PDF export), built the Mafrooz Hub V3.0 redesign with three-tier responsive system, and enhanced the PlayX ecosystem (playx_network streaming, interceptors, path params). Earlier in 2025: built the Mafrooz Hub app from scratch, scaffolded the Amenaa (SWNW) medical app, built TMT GPS vehicle group management, and delivered Nasni entities & building dashboard, Kold live monitor & dashboard.",
   },
   {
     year: "2025",
@@ -275,9 +268,9 @@ export const timeline = [
   {
     year: "2023",
     detail:
-      "Lead Flutter Developer at Drop Me — community-driven recycling platform (side project).",
+      "Lead Flutter Developer at Drop Me — circular recovery mobile platform (side project).",
     more:
-      "Built real-time rewards system and gamification features for sustainable practices. 1K+ downloads, 5-star rating. Maintained alongside full-time roles.",
+      "Built real-time rewards system and gamification features for sustainable practices. Maintained alongside full-time roles.",
   },
   {
     year: "2022",
@@ -328,7 +321,7 @@ export const experience = [
     company: "Sourcya",
     role: "Senior Flutter Engineer",
     period: "Sep 2025 – Present",
-    description: "Building 22+ multi-app delivery & workforce platforms (TMT Track, Nasni, Kold, Arbeta, Rehla, Ammena, Mafrooz, Madaan). 60+ shipped features across Android, iOS & Web using GetX + PlayX ecosystem.",
+    description: "Building multi-app delivery & workforce platforms (TMT Track, Nasni, Kold, Arbeta, Rehla, Ammena, Mafrooz, Madaan) across Android, iOS & Web using GetX + PlayX ecosystem. Led API migration across 8+ apps, built the sourcya_in_app_rating package, and configured Staging/Production flavors for multi-app releases.",
     highlights: ["22 repos", "API migration across 8+ apps", "sourcya_in_app_rating package", "PlayX ecosystem enhancements"],
   },
   {
@@ -357,7 +350,7 @@ export const experience = [
     role: "Lead Flutter Developer (Part-time)",
     period: "2023 – Present",
     description: "Led Flutter delivery for the consumer-facing layer of a circular recovery ecosystem — connecting verified recycling actions with real-time rewards, gamification and sustainability engagement across Android & iOS.",
-    highlights: ["Realtime rewards & gamification", "1K+ downloads · 5.0 rating (Aug 2026)", "Ongoing part-time"],
+    highlights: ["Realtime rewards & gamification", "Ongoing part-time"],
   },
   {
     company: "Freelance",

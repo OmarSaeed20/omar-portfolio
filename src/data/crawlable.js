@@ -34,15 +34,15 @@ export const skillStats = [
   { label: "Years Building", value: "4+" },
   { label: "Shipped Products", value: "22+" },
   { label: "Active Repos", value: "22" },
-  { label: "Shipped Features", value: "61" },
+  { label: "Apps Migrated", value: "8+" },
 ];
 
 export const proofRail = [
   "4+ years building and shipping production systems",
   "22+ shipped products across Android, iOS & Web",
-  "61+ production features delivered",
+  "8+ apps migrated (API + flavor + store release matrix)",
   "22 active repositories owned or touched",
-  "534 commits across 12 months",
+  "sourcya_in_app_rating package — adopted in 5+ apps",
 ];
 
 export const facts = [
@@ -173,13 +173,8 @@ export const careerEvolution = [
   },
   {
     year: "2025",
-    milestone: "Realtime & platform-scale systems",
-    detail: "Joined Sourcya. Built multi-app delivery & workforce platforms from scratch — TMT Track (realtime GPS), Nasni, Kold (realtime monitoring), Rehla (multi-role ride-hailing). Led API migration across 8+ apps and performance optimization at Mafrooz.",
-  },
-  {
-    year: "2026",
-    milestone: "Multi-app ecosystems & reusable engineering infrastructure",
-    detail: "Senior Flutter Engineer at Sourcya. 60+ shipped features, 534 commits across 22 repos. Built sourcya_in_app_rating package (5+ apps), enhanced PlayX ecosystem (streaming, interceptors, path params), and configured Staging/Production flavors for multi-app releases.",
+    milestone: "Realtime & platform-scale systems + reusable infrastructure",
+    detail: "Joined Sourcya after leading performance optimization at Mafrooz. Built multi-app delivery & workforce platforms from scratch — TMT Track (realtime GPS), Nasni, Kold (realtime monitoring), Rehla (multi-role ride-hailing). Led API migration across 8+ apps, built the sourcya_in_app_rating package (adopted in 5+ apps), enhanced the PlayX ecosystem (streaming, interceptors, path params), and configured Staging/Production flavors for multi-app releases.",
   },
 ];
 
@@ -247,7 +242,6 @@ export const projectData = [
       ],
       architecture: ["User action", "Firebase auth/config", "REST API", "WebSocket rewards", "Reactive state", "Gamification + UI"],
       impact: [
-        "1K+ downloads · 5.0 rating on Google Play (snapshot: Aug 2026)",
         "Live on Google Play & App Store",
         "Reward confirmation latency kept within seconds across flaky mobile data",
       ],
