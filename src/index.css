@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -26,7 +25,7 @@
   --nav-shadow: rgba(0, 0, 0, 0.5);
   --text-primary: #ffffff;
   --text-secondary: #a1a1aa;
-  --text-muted: #71717a;
+  --text-muted: #8b8b93;
   --btn-primary-bg: #ffffff;
   --btn-primary-text: #000000;
   --btn-primary-hover: #e4e4e7;
@@ -57,14 +56,15 @@
 }
 
 /* ── Light Theme ── */
-.light {
-  --background: #f8f9fa;
+:root.light {
+  --background: #f4f5f7;
   --foreground: #111111;
   --primary: #2563eb;
   --muted: #6b7280;
   --border: #e5e7eb;
   --card: #ffffff;
   --card-foreground: #111111;
+  --card-shadow: 0 1px 3px #0000001a, 0 1px 2px #0000000f;
   --accent: #eff6ff;
   --accent-foreground: #1e40af;
   --surface: #ffffff;
@@ -79,7 +79,7 @@
   --nav-shadow: rgba(0, 0, 0, 0.06);
   --text-primary: #111111;
   --text-secondary: #4b5563;
-  --text-muted: #9ca3af;
+  --text-muted: #6b7280;
   --btn-primary-bg: #111111;
   --btn-primary-text: #ffffff;
   --btn-primary-hover: #333333;
@@ -98,8 +98,8 @@
   --terminal-border: rgba(0, 255, 65, 0.3);
   --glass-bg: rgba(0, 0, 0, 0.02);
   --glass-bg-hover: rgba(0, 0, 0, 0.04);
-  --glass-border: rgba(0, 0, 0, 0.06);
-  --glass-border-hover: rgba(0, 0, 0, 0.12);
+  --glass-border: rgba(0, 0, 0, 0.12);
+  --glass-border-hover: rgba(0, 0, 0, 0.2);
   --glass-icon-bg: rgba(0, 0, 0, 0.04);
   --glass-icon-border: rgba(0, 0, 0, 0.06);
   --glass-tag-bg: rgba(0, 0, 0, 0.04);
@@ -110,7 +110,7 @@
 }
 
 /* ── Dark Theme (default) ── */
-.dark {
+:root.dark {
   --background: #050505;
   --foreground: #ffffff;
   --primary: #3b82f6;
@@ -132,7 +132,7 @@
   --nav-shadow: rgba(0, 0, 0, 0.5);
   --text-primary: #ffffff;
   --text-secondary: #a1a1aa;
-  --text-muted: #71717a;
+  --text-muted: #8b8b93;
   --btn-primary-bg: #ffffff;
   --btn-primary-text: #000000;
   --btn-primary-hover: #e4e4e7;

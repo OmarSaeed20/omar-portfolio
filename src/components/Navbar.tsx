@@ -113,7 +113,7 @@ const Navbar = ({ terminalMode, setTerminalMode, uiType, setUiType, forcedTab, s
           >
             <div className={`rounded-xl overflow-hidden transition-all duration-300 ${terminalMode ? "ring-2 ring-green-500/50" : "ring-2 ring-[var(--avatar-border)] group-hover:ring-blue-500/50"
               }`}>
-              <img src="/assets/OS_logo.png" alt="OS Logo" className="w-10 h-10 object-contain" />
+              <img src="/assets/icon-192.png" alt="OS Logo" className="w-10 h-10 object-contain" />
             </div>
             <div className="relative">
               <span className="font-black text-2xl tracking-tighter uppercase text-[var(--text-primary)] flex items-baseline">

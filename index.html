@@ -4,15 +4,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <meta name="description" content="Senior Flutter Engineer with 4+ years building production mobile systems across iOS, Android & Web. Architecture, realtime systems, performance. 22+ shipped products. Open to select senior opportunities — based in Egypt." />
   <meta name="author" content="OmarSaeed20" />
+
+  <!-- Fonts: preconnect + link instead of CSS @import to avoid render-blocking chain -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" />
 
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Omar Saeed — Senior Flutter Engineer (Open to select senior opportunities)" />
   <meta name="twitter:description" content="Senior Flutter Engineer @ Sourcya · 4+ years · 22+ shipped products · iOS, Android & Web. Architecture, realtime systems, performance." />
-  <meta name="twitter:image" content="https://omar-portfolio-blond.vercel.app/assets/avatar-4.png" />
+  <meta name="twitter:image" content="https://omar-portfolio-blond.vercel.app/assets/og-cover.jpg" />
 
   <!-- JSON-LD Person Schema -->
   <script type="application/ld+json">
@@ -51,16 +54,22 @@
   <meta property="og:title" content="Omar Saeed — Senior Flutter Engineer (Open to select senior opportunities)" />
   <meta property="og:description" content="Senior Flutter Engineer @ Sourcya · 4+ years · 22+ shipped products · iOS, Android & Web. Architecture, realtime systems, performance." />
   <meta property="og:url" content="https://omar-portfolio-blond.vercel.app/" />
-  <meta property="og:image" content="https://omar-portfolio-blond.vercel.app/assets/avatar-4.png" />
+  <meta property="og:image" content="https://omar-portfolio-blond.vercel.app/assets/og-cover.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Omar Saeed — Senior Flutter Engineer" />
+  <meta property="og:site_name" content="Omar Saeed" />
+  <meta property="og:locale" content="en_US" />
+  <link rel="canonical" href="https://omar-portfolio-blond.vercel.app/" />
 
   <!-- PWA Manifest & Meta -->
   <link rel="manifest" href="/manifest.json" />
   <meta name="theme-color" content="#000000" />
   <meta name="msapplication-navbutton-color" content="#000000" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="#000000" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Omar Saeed Portfolio" />
-  <link rel="apple-touch-icon" href="/assets/OS_logo.png" />
+  <link rel="apple-touch-icon" href="/assets/icon-192.png" />
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YJSW2KXXT0"></script>
@@ -73,20 +82,22 @@
   </script>
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/OS_logo.png" />
-  <link rel="shortcut icon" href="/assets/OS_logo.png" type="image/png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+  <link rel="shortcut icon" href="/assets/favicon-32.png" type="image/png" />
 
-  <!-- Prevent FOUC: Apply theme class before React hydrates -->
+  <!-- Prevent FOUC: Apply theme class before React hydrates. Must match ThemeProvider logic: honor prefers-color-scheme when no stored value. -->
   <script>
-    (function() {
-      var theme = localStorage.getItem('theme');
-      if (theme === 'light') {
-        document.documentElement.classList.add('light');
-        document.documentElement.classList.remove('dark');
-      } else {
-        document.documentElement.classList.add('dark');
-        document.documentElement.classList.remove('light');
-      }
+    (function () {
+      try {
+        var s = localStorage.getItem('theme');
+        var light = s === 'light' ||
+          (s !== 'dark' && window.matchMedia('(prefers-color-scheme: light)').matches);
+        var r = document.documentElement;
+        r.classList.toggle('light', light);
+        r.classList.toggle('dark', !light);
+        var m = document.querySelector('meta[name="theme-color"]');
+        if (m) m.setAttribute('content', light ? '#ffffff' : '#000000');
+      } catch (e) {}
     })();
   </script>
 

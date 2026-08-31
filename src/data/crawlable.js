@@ -23,7 +23,7 @@ export const personalInfo = {
   ],
   college: "Menoufia University",
   collegeUrl: "https://www.menofia.edu.eg/",
-  avatarUrl: "/assets/avatar-4.png",
+  avatarUrl: "/assets/avatar-4.webp",
   status: "Open to select senior opportunities",
   aboutText: "Senior Flutter Engineer from Egypt with 4+ years building production mobile and web systems across Android, iOS, and Web — architecture, realtime data, and performance that survives production.",
   aboutText1: "I didn't take the conventional route into engineering. I graduated in Commerce (English Section) from ",

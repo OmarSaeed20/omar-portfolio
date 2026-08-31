@@ -11,8 +11,9 @@ import Experience from "./pages/Experience";
 import Skills from "./pages/Skills";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
+import NotFound from "./pages/NotFound";
 
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { useTheme } from "./context/ThemeContext";
 
 const App = () => {
@@ -95,7 +96,7 @@ const App = () => {
                   </div>
                 </div>
               } />
-              <Route path="*" element={<Navigate to="/" replace />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           ) : (
             <div>

@@ -103,7 +103,7 @@ const DiscMenu = () => {
           dragConstraints={{ left: 0, right: 0 }}
           style={{ rotate: rotation }}
           onDragEnd={handleDragEnd}
-          className="relative w-[320px] h-[70px] rounded-t-full backdrop-blur-md border-t border-gray-400 dark:border-gray-500 shadow-md cursor-grab flex items-center justify-center pointer-events-auto transition-all duration-300"
+          className="relative w-full max-w-[320px] h-[70px] rounded-t-full backdrop-blur-md border-t border-gray-400 dark:border-gray-500 shadow-md cursor-grab flex items-center justify-center pointer-events-auto transition-all duration-300"
         >
           <motion.button
             onClick={() => rotateTo("left")}
