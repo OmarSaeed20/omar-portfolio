@@ -6,7 +6,7 @@ import { Github, ArrowUpRight, ExternalLink, Smartphone, Globe } from "lucide-re
 import clsx from "clsx";
 import { projectData } from "../data/userData";
 
-const categories = ["Mobile", "Web"] as const;
+const categories = ["Mobile", "Web", "Package"] as const;
 
 const platformIcons: Record<string, React.ReactNode> = {
   "Google Play": <Smartphone size={12} />,
@@ -15,6 +15,12 @@ const platformIcons: Record<string, React.ReactNode> = {
   "Driver - Google Play": <Smartphone size={12} />,
   "Driver - App Store": <Smartphone size={12} />,
   "Passenger - Google Play": <Smartphone size={12} />,
+  "Operator - Google Play": <Smartphone size={12} />,
+  "Operator - App Store": <Smartphone size={12} />,
+  "Operator - Web": <Globe size={12} />,
+  "Station - Web": <Globe size={12} />,
+  "Workforce - Google Play": <Smartphone size={12} />,
+  "Workforce - App Store": <Smartphone size={12} />,
 };
 
 const Projects = ({ limit }: { limit?: number }) => {

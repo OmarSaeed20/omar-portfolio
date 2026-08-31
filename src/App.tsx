@@ -62,6 +62,8 @@ const App = () => {
         setTerminalMode={handleTerminalToggle}
         uiType={uiType}
         setUiType={handleUiToggle}
+        forcedTab={activeTab}
+        setForcedTab={setActiveTab}
       />
 
       {!terminalMode ? (

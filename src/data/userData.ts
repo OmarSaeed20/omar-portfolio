@@ -55,6 +55,8 @@ export const skills: SkillCategory[] = [
       { name: "GetX", icon: "https://cdn.simpleicons.org/getx", level: "Expert", years: 4 },
       { name: "Provider", icon: "https://cdn.simpleicons.org/flutter", level: "Advanced" },
       { name: "BLoC/Cubit", icon: "https://cdn.simpleicons.org/flutter", level: "Advanced" },
+      { name: "Riverpod", icon: "https://raw.githubusercontent.com/rrousselGit/riverpod/master/website/static/img/logo.svg", level: "Advanced", invertDark: true },
+      { name: "RxDart", icon: "https://cdn.simpleicons.org/dart", level: "Advanced" },
     ],
   },
   {

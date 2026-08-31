@@ -57,7 +57,7 @@ const BottomNavBar = ({ forcedTab, setForcedTab }: Props) => {
   };
 
   return (
-    <div className="fixed bottom-4 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
+    <div className="fixed bottom-4 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none lg:hidden">
       <nav className="bg-[var(--bottom-nav-bg)] backdrop-blur-xl border border-[var(--bottom-nav-border)] rounded-2xl px-2 py-2 shadow-2xl pointer-events-auto">
         <div className="flex items-center gap-1 sm:gap-2 px-1">
           {navItems.map((item) => {

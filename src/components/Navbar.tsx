@@ -1,25 +1,78 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Terminal, Github, Star } from "lucide-react";
+import { Terminal, Github, Star, HomeIcon, Info, FolderKanban, ContactRound, Target } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
+
+export const navItems = [
+  { name: "Home", id: "home", icon: HomeIcon },
+  { name: "About", id: "about", icon: Info },
+  { name: "Projects", id: "projects", icon: FolderKanban },
+  { name: "Skills", id: "skills", icon: Target },
+  { name: "Contact", id: "contact", icon: ContactRound },
+];
 
 type Props = {
   terminalMode: boolean;
   setTerminalMode: (v: boolean) => void;
   uiType?: "landing" | "modular";
   setUiType?: (v: "landing" | "modular") => void;
+  forcedTab?: string;
+  setForcedTab?: (tab: string) => void;
 };
 
-const Navbar = ({ terminalMode, setTerminalMode, uiType, setUiType }: Props) => {
+const Navbar = ({ terminalMode, setTerminalMode, uiType, setUiType, forcedTab, setForcedTab }: Props) => {
   const [stars, setStars] = useState<number | null>(null);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Track active section for desktop nav highlighting
+  useEffect(() => {
+    if (terminalMode) return;
+    if (uiType === "modular" && forcedTab) {
+      setActiveSection(forcedTab);
+      return;
+    }
+
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
+      for (const item of navItems) {
+        const element = document.getElementById(item.id);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(item.id);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [terminalMode, forcedTab, uiType]);
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleNavClick = (id: string) => {
+    if (uiType === "modular" && setForcedTab) {
+      setForcedTab(id);
+      setActiveSection(id);
+    } else {
+      scrollToSection(id);
+    }
+  };
 
   useEffect(() => {
     fetch("https://api.github.com/repos/OmarSaeed20/OmarSaeed20")
@@ -69,6 +122,33 @@ const Navbar = ({ terminalMode, setTerminalMode, uiType, setUiType }: Props) => 
               <div className={`absolute -bottom-0.5 left-0 h-1 rounded-full transition-all duration-300 w-0 group-hover:w-full ${terminalMode ? "bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)]" : "bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.5)]"}`} />
             </div>
           </a>
+
+          {/* Desktop Nav — visible on lg+ screens, hidden in terminal mode */}
+          {!terminalMode && (
+            <div className="hidden lg:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
+              <div className="flex items-center gap-1 bg-[var(--glass-bg)] backdrop-blur-xl border border-[var(--glass-border)] rounded-2xl px-1 py-1">
+                {navItems.map((item) => {
+                  const isActive = item.id === activeSection;
+                  const Icon = item.icon;
+                  return (
+                    <button
+                      key={item.id}
+                      onClick={() => handleNavClick(item.id)}
+                      className={`relative flex items-center gap-2 px-4 py-2 rounded-xl transition-all duration-300 ${isActive
+                        ? "text-blue-500 bg-[var(--accent)]"
+                        : "text-[var(--text-muted)] hover:text-[var(--text-secondary)] hover:bg-[var(--accent)]"
+                        }`}
+                    >
+                      <Icon size={16} strokeWidth={isActive ? 2.5 : 2} />
+                      <span className="text-xs font-bold uppercase tracking-wider whitespace-nowrap">
+                        {item.name}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
 
           {/* Controls */}
           <div className="flex items-center gap-2">
