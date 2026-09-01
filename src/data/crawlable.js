@@ -32,15 +32,18 @@ export const personalInfo = {
 
 export const skillStats = [
   { label: "Years Building", value: "4+" },
-  { label: "Apps Live", value: "8" },
+  { label: "Shipped Products", value: "22+" },
+  { label: "Active Repos", value: "22" },
+  { label: "Apps Migrated", value: "8+" },
   { label: "Platforms", value: "3" },
   { label: "Published Packages", value: "2" },
 ];
 
 export const proofRail = [
   "4+ years building and shipping production systems",
-  "8 apps live on Google Play & App Store",
-  "3 platforms shipped — iOS, Android, Web",
+  "22+ shipped products across Android, iOS & Web",
+  "8+ apps migrated (API + flavor + store release matrix)",
+  // "22 active repositories owned or touched",
   "2 published Dart packages — sourcya_in_app_rating, PlayX",
 ];
 
