@@ -12,6 +12,7 @@ import Skills from "./pages/Skills";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import ConsentBanner from "./components/ConsentBanner";
 
 import { Routes, Route } from "react-router-dom";
 import { useTheme } from "./context/ThemeContext";
@@ -111,6 +112,7 @@ const App = () => {
           setUiType={handleUiToggle}
         />
       )}
+      <ConsentBanner />
     </div>
   );
 };

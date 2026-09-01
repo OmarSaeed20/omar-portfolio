@@ -70,13 +70,21 @@
   <meta name="apple-mobile-web-app-title" content="Omar Saeed Portfolio" />
   <link rel="apple-touch-icon" href="/assets/icon-192.png" />
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YJSW2KXXT0"></script>
+  <!-- Consent Mode v2: default denied before GA4 loads — no cookies set until user accepts -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
+    gtag('consent', 'default', {
+      analytics_storage: 'denied',
+      ad_storage: 'denied',
+      wait_for_update: 500,
+    });
+  </script>
 
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YJSW2KXXT0"></script>
+  <script>
+    gtag('js', new Date());
     gtag('config', 'G-YJSW2KXXT0');
   </script>
 
