@@ -35,6 +35,8 @@ export const skillStats = [
   { label: "Shipped Products", value: "22+" },
   { label: "Active Repos", value: "22" },
   { label: "Apps Migrated", value: "8+" },
+  { label: "Platforms", value: "3" },
+  { label: "Published Packages", value: "2" },
 ];
 
 export const proofRail = [
@@ -42,7 +44,7 @@ export const proofRail = [
   "22+ shipped products across Android, iOS & Web",
   "8+ apps migrated (API + flavor + store release matrix)",
   "22 active repositories owned or touched",
-  "sourcya_in_app_rating package — adopted in 5+ apps",
+  "2 published Dart packages — sourcya_in_app_rating, PlayX",
 ];
 
 export const facts = [

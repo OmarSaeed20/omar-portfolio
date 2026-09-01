@@ -79,7 +79,7 @@ function buildCrawlableHtml(d) {
   // normal JS-enabled users never see this block.
   return [
     '<noscript class="prerender-content" aria-hidden="false">',
-    '<main style="font-family:system-ui,sans-serif;max-width:800px;margin:0 auto;padding:2rem;color:#fff;background:#000;">',
+    '<main style="font-family:system-ui,sans-serif;max-width:800px;margin:0 auto;padding:2rem;color:var(--foreground);background:var(--background);">',
     `<h1>${info.name} — ${info.role}</h1>`,
     `<p><strong>${info.status}</strong> · ${info.location}</p>`,
     `<p>${info.aboutText} ${info.aboutText1}<a href="${info.collegeUrl}">${info.college}</a>${info.aboutText2}</p>`,
