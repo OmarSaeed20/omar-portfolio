@@ -48,10 +48,11 @@ const App = () => {
   const renderModularUI = () => {
     switch (activeTab) {
       case "home": return <Hero uiType={uiType} onTabChange={setActiveTab} />;
-      case "about": return <About />;
+      case "projects": return <Projects />;
       case "experience": return <Experience />;
       case "skills": return <Skills />;
-      case "projects": return <Projects />;
+      case "engineering-notes": return <EngineeringNotes />;
+      case "about": return <About />;
       case "contact": return <Contact />;
       default: return <Projects />;
     }
@@ -81,8 +82,8 @@ const App = () => {
                       would create duplicate ids and confuse the IntersectionObserver). */}
                   <Hero uiType={uiType} onTabChange={setActiveTab} />
                   <Projects />
-                  <Skills />
                   <Experience />
+                  <Skills />
                   <EngineeringNotes />
                   <About />
                   <Contact />
