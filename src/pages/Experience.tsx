@@ -25,7 +25,7 @@ const Experience = () => {
   const rest = experience.filter((e) => e.company !== "Sourcya");
 
   return (
-    <section id="experience" className="w-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-32 pb-24 min-h-screen text-foreground relative z-10 scroll-mt-32">
+    <section id="experience" className="w-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-32 pb-24 min-h-screen text-foreground relative z-10">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -63,7 +63,7 @@ const Experience = () => {
             {/* Header */}
             <div className="p-6 md:p-8 border-b border-[var(--glass-border)]">
               <div className="flex items-center gap-2 mb-3">
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-[10px] font-black uppercase tracking-widest">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-[12px] sm:text-[10px] font-black uppercase tracking-widest">
                   Proof Dashboard
                 </span>
               </div>
@@ -87,7 +87,7 @@ const Experience = () => {
                   <div key={i} className="p-5 bg-[var(--glass-bg)] text-center">
                     <Icon size={20} className="mx-auto mb-2 text-blue-400" />
                     <div className="text-2xl md:text-3xl font-black text-[var(--text-primary)]">{stat.value}</div>
-                    <div className="text-[10px] font-black uppercase tracking-widest text-[var(--text-muted)] mt-1">
+                    <div className="text-[12px] sm:text-[10px] font-black uppercase tracking-widest text-[var(--text-muted)] mt-1">
                       {stat.label}
                     </div>
                   </div>

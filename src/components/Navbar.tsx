@@ -3,14 +3,29 @@
 import { useState, useEffect } from "react";
 import { Terminal, Github, Star, Info, FolderKanban, ContactRound, Briefcase, Wrench, FileText } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
+import {
+  NAV_ITEMS,
+  useActiveSection,
+  scrollToSection as scrollToSectionShared,
+  type SectionId,
+} from "../hooks/useActiveSection";
 
-export const navItems = [
-  { name: "Work", id: "projects", icon: FolderKanban },
-  { name: "Experience", id: "experience", icon: Briefcase },
-  { name: "Engineering", id: "skills", icon: Wrench },
-  { name: "About", id: "about", icon: Info },
-  { name: "Contact", id: "contact", icon: ContactRound },
-];
+// Icons mapped onto the shared section list so the nav renders with the same
+// visuals while the source of truth lives in one module.
+const SECTION_ICONS: Record<SectionId, React.ComponentType<{ size?: number; strokeWidth?: number }>> = {
+  home: Info,
+  projects: FolderKanban,
+  experience: Briefcase,
+  skills: Wrench,
+  "engineering-notes": Wrench,
+  about: Info,
+  contact: ContactRound,
+};
+
+const navItems = NAV_ITEMS.map((item) => ({
+  ...item,
+  icon: SECTION_ICONS[item.id],
+}));
 
 type Props = {
   terminalMode: boolean;
@@ -24,53 +39,28 @@ type Props = {
 const Navbar = ({ terminalMode, setTerminalMode, uiType, setUiType, forcedTab, setForcedTab }: Props) => {
   const [stars, setStars] = useState<number | null>(null);
   const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
+
+  // Track active section for desktop nav highlighting.
+  // In terminal mode there's no nav to highlight, so pass a forced id to skip
+  // observation. In modular mode the active tab is driven externally.
+  const forcedId = terminalMode
+    ? ("home" as SectionId)
+    : uiType === "modular" && forcedTab
+      ? (forcedTab as SectionId)
+      : null;
+  const activeSection = useActiveSection({ forcedId });
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  // Track active section for desktop nav highlighting
-  useEffect(() => {
-    if (terminalMode) return;
-    if (uiType === "modular" && forcedTab) {
-      setActiveSection(forcedTab);
-      return;
-    }
-
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + window.innerHeight / 2;
-      for (const item of navItems) {
-        const element = document.getElementById(item.id);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(item.id);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [terminalMode, forcedTab, uiType]);
-
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   const handleNavClick = (id: string) => {
     if (uiType === "modular" && setForcedTab) {
       setForcedTab(id);
-      setActiveSection(id);
     } else {
-      scrollToSection(id);
+      scrollToSectionShared(id);
     }
   };
 
@@ -134,6 +124,8 @@ const Navbar = ({ terminalMode, setTerminalMode, uiType, setUiType, forcedTab, s
                     <button
                       key={item.id}
                       onClick={() => handleNavClick(item.id)}
+                      aria-current={isActive ? "true" : undefined}
+                      aria-label={item.name}
                       className={`relative flex items-center gap-2 px-4 py-2 rounded-xl transition-all duration-300 ${isActive
                         ? "text-blue-500 bg-[var(--accent)]"
                         : "text-[var(--text-muted)] hover:text-[var(--text-secondary)] hover:bg-[var(--accent)]"
@@ -169,7 +161,7 @@ const Navbar = ({ terminalMode, setTerminalMode, uiType, setUiType, forcedTab, s
 
             <div className="h-4 w-px bg-white/10 mx-1 hidden sm:block" /> */}
 
-            <a
+            {/* <a
               href="https://github.com/OmarSaeed20"
               target="_blank"
               className="flex items-center gap-2 px-3 py-1.5 rounded-xl border border-[var(--glass-border)] bg-[var(--glass-bg)] hover:bg-[var(--glass-bg-hover)] transition-all group"
@@ -181,7 +173,7 @@ const Navbar = ({ terminalMode, setTerminalMode, uiType, setUiType, forcedTab, s
                   {stars}
                 </span>
               )}
-            </a>
+            </a> */}
 
             {/* Resume CTA */}
             {!terminalMode && (
@@ -189,7 +181,7 @@ const Navbar = ({ terminalMode, setTerminalMode, uiType, setUiType, forcedTab, s
                 href="/assets/Omar-Saeed-Senior-Flutter-Engineer-Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[var(--btn-primary-bg)] text-[var(--btn-primary-text)] hover:opacity-90 transition-all font-black text-xs uppercase tracking-widest"
+                className="hidden sm:flex items-center gap-2 px-3 py-2.5 rounded-xl bg-[var(--btn-primary-bg)] text-[var(--btn-primary-text)] hover:opacity-90 transition-all font-black text-xs uppercase tracking-widest"
                 title="View Resume"
               >
                 <FileText size={14} />

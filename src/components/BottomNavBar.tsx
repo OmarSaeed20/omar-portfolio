@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   Info,
@@ -7,14 +6,29 @@ import {
   Briefcase,
   Wrench,
 } from "lucide-react";
+import {
+  NAV_ITEMS,
+  useActiveSection,
+  scrollToSection as scrollToSectionShared,
+  type SectionId,
+} from "../hooks/useActiveSection";
 
-const navItems = [
-  { name: "Work", id: "projects", icon: FolderKanban },
-  { name: "Experience", id: "experience", icon: Briefcase },
-  { name: "Engineering", id: "skills", icon: Wrench },
-  { name: "About", id: "about", icon: Info },
-  { name: "Contact", id: "contact", icon: ContactRound },
-];
+// Icons mapped onto the shared section list so the bottom nav renders with the
+// same visuals while the source of truth lives in one module.
+const SECTION_ICONS: Record<SectionId, React.ComponentType<{ size?: number; strokeWidth?: number }>> = {
+  home: Info,
+  projects: FolderKanban,
+  experience: Briefcase,
+  skills: Wrench,
+  "engineering-notes": Wrench,
+  about: Info,
+  contact: ContactRound,
+};
+
+const navItems = NAV_ITEMS.map((item) => ({
+  ...item,
+  icon: SECTION_ICONS[item.id],
+}));
 
 type Props = {
   forcedTab?: string;
@@ -22,43 +36,31 @@ type Props = {
 };
 
 const BottomNavBar = ({ forcedTab, setForcedTab }: Props) => {
-  const [activeSection, setActiveSection] = useState("projects");
+  // Single shared observer (via the hook) instead of a second scroll listener.
+  // forcedTab drives the state externally in modular/tab mode.
+  const activeSection = useActiveSection({ forcedId: forcedTab ?? null });
 
-  useEffect(() => {
-    if (forcedTab) {
-      setActiveSection(forcedTab);
+  const handleClick = (e: React.MouseEvent, id: string) => {
+    if (setForcedTab) {
+      e.preventDefault();
+      setForcedTab(id);
       return;
     }
-
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + window.innerHeight / 2;
-
-      for (const item of navItems) {
-        const element = document.getElementById(item.id);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(item.id);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [forcedTab]);
-
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+    scrollToSectionShared(id);
   };
 
   return (
-    <div className="fixed bottom-4 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none lg:hidden">
-      <nav className="bg-[var(--bottom-nav-bg)] backdrop-blur-xl border border-[var(--bottom-nav-border)] rounded-2xl px-2 py-2 shadow-2xl pointer-events-auto">
+    <div
+      className="fixed left-0 right-0 z-50 flex justify-center px-4 pointer-events-none lg:hidden bottom-nav-shell"
+      // 16px base + the device's own bottom inset so the pill clears the
+      // iPhone home indicator and Safari's floating bottom bar in PWA mode.
+      // Falls back to 16px on browsers without env() support.
+      style={{ bottom: "calc(1rem + env(safe-area-inset-bottom, 0px))" }}
+    >
+      <nav
+        aria-label="Section navigation"
+        className="bg-[var(--bottom-nav-bg)] backdrop-blur-xl border border-[var(--bottom-nav-border)] rounded-2xl px-2 py-2 shadow-2xl pointer-events-auto"
+      >
         <div className="flex items-center gap-1 sm:gap-2 px-1">
           {navItems.map((item) => {
             const isActive = item.id === activeSection;
@@ -66,16 +68,10 @@ const BottomNavBar = ({ forcedTab, setForcedTab }: Props) => {
             return (
               <button
                 key={item.id}
-                onClick={(e) => {
-                  if (setForcedTab) {
-                    e.preventDefault();
-                    setForcedTab(item.id);
-                    setActiveSection(item.id);
-                  } else {
-                    scrollToSection(item.id);
-                  }
-                }}
-                className={`relative flex items-center justify-center p-3 sm:p-4 rounded-2xl transition-all duration-300 group ${isActive
+                onClick={(e) => handleClick(e, item.id)}
+                aria-current={isActive ? "true" : undefined}
+                aria-label={item.name}
+                className={`relative flex items-center justify-center p-3.5 sm:p-4 rounded-2xl transition-all duration-300 group ${isActive
                   ? "text-blue-500 bg-[var(--accent)]"
                   : "text-[var(--text-muted)] hover:text-[var(--text-secondary)] hover:bg-[var(--accent)]"
                   }`}
@@ -88,7 +84,7 @@ const BottomNavBar = ({ forcedTab, setForcedTab }: Props) => {
                         initial={{ width: 0, opacity: 0 }}
                         animate={{ width: "auto", opacity: 1 }}
                         exit={{ width: 0, opacity: 0 }}
-                        className="text-[10px] font-black uppercase tracking-widest whitespace-nowrap overflow-hidden"
+                        className="text-[12px] sm:text-[10px] font-black uppercase tracking-widest whitespace-nowrap overflow-hidden"
                       >
                         {item.name}
                       </motion.span>

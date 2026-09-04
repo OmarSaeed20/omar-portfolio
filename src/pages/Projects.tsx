@@ -25,8 +25,9 @@ const platformIcons: Record<string, React.ReactNode> = {
   "Workforce - App Store": <Smartphone size={12} />,
 };
 
-const Projects = ({ limit }: { limit?: number }) => {
+const Projects = ({ limit, collapsed = true }: { limit?: number; collapsed?: boolean }) => {
   const [activeCategory, setActiveCategory] = useState("all");
+  const [showAll, setShowAll] = useState(!collapsed);
 
   const flagshipProjects: Project[] = projectData.filter((p) => p.flagship);
   const moreProjects: Project[] = projectData.filter((p) => !p.flagship);
@@ -35,9 +36,12 @@ const Projects = ({ limit }: { limit?: number }) => {
     (p) => activeCategory === "all" || p.category.includes(activeCategory)
   );
   const displayMore = limit ? filteredMore.slice(0, limit) : filteredMore;
+  // Collapse the "More Shipped Products" grid to 3 cards on mobile/landing so
+  // the page stays finishable; expand behind a "View all N" toggle.
+  const visibleMore = showAll ? displayMore : displayMore.slice(0, 3);
 
   return (
-    <section id="projects" className="w-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-32 pb-24 min-h-screen text-foreground relative z-10 scroll-mt-32">
+    <section id="projects" className="w-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-32 pb-24 min-h-screen text-foreground relative z-10">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -119,7 +123,7 @@ const Projects = ({ limit }: { limit?: number }) => {
 
           {/* Compact Cards Grid */}
           <div className="grid gap-4 md:grid-cols-2 max-w-6xl mx-auto sm:px-0">
-            {displayMore.map((project) => (
+            {visibleMore.map((project) => (
               <motion.div
                 key={project.name}
                 initial={{ opacity: 0, y: 20 }}
@@ -168,7 +172,7 @@ const Projects = ({ limit }: { limit?: number }) => {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-sm text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors font-bold"
+                      className="tap-safe inline-flex items-center gap-2 text-sm text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors font-bold"
                     >
                       <Github size={18} /> Source
                     </a>
@@ -180,7 +184,7 @@ const Projects = ({ limit }: { limit?: number }) => {
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm font-black text-blue-500 hover:text-blue-400 transition-colors uppercase tracking-widest"
+                      className="tap-safe inline-flex items-center text-sm font-black text-blue-500 hover:text-blue-400 transition-colors uppercase tracking-widest"
                     >
                       Live Demo →
                     </a>
@@ -189,13 +193,26 @@ const Projects = ({ limit }: { limit?: number }) => {
               </motion.div>
             ))}
           </div>
+
+          {/* Collapse toggle — keeps the page finishable on mobile */}
+          {!showAll && displayMore.length > 3 && (
+            <div className="mt-10 flex justify-center">
+              <button
+                onClick={() => setShowAll(true)}
+                className="px-8 py-2.5 min-h-[48px] rounded-full border border-[var(--border)] text-[var(--text-primary)] font-black text-base transition-all duration-300 hover:bg-[var(--accent)] hover:border-[var(--text-muted)] flex items-center gap-2 group"
+              >
+                View all {displayMore.length + flagshipProjects.length} projects
+                <ArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              </button>
+            </div>
+          )}
         </div>
 
         {limit && filteredMore.length > limit && (
           <div className="mt-16 flex justify-center">
             <a
               href="/projects"
-              className="px-8 py-3.5 rounded-full border border-[var(--border)] text-[var(--text-primary)] font-black text-base transition-all duration-300 hover:bg-[var(--accent)] hover:border-[var(--text-muted)] flex items-center gap-2 group"
+              className="px-8 py-2.5 min-h-[48px] rounded-full border border-[var(--border)] text-[var(--text-primary)] font-black text-base transition-all duration-300 hover:bg-[var(--accent)] hover:border-[var(--text-muted)] flex items-center gap-2 group"
             >
               View More Projects
               <ArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />

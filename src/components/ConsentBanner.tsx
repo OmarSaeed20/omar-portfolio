@@ -31,7 +31,7 @@ const ConsentBanner = () => {
     <div
       role="dialog"
       aria-label="Cookie consent"
-      className="fixed bottom-4 left-4 right-4 z-[100] mx-auto max-w-md rounded-2xl border border-[var(--glass-border)] bg-[var(--card)] p-5 shadow-lg"
+      className="fixed bottom-4 left-4 right-4 z-[100] mx-auto max-w-[min(28rem,calc(100vw-2rem))] rounded-2xl border border-[var(--glass-border)] bg-[var(--card)] p-5 shadow-lg"
       style={{ boxShadow: "var(--card-shadow)" }}
     >
       <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-4">
@@ -49,13 +49,13 @@ const ConsentBanner = () => {
       <div className="flex gap-3">
         <button
           onClick={() => handleChoice(true)}
-          className="flex-1 px-4 py-2.5 rounded-lg bg-[var(--btn-secondary-bg)] text-[var(--btn-secondary-text)] text-sm font-semibold hover:bg-[var(--btn-secondary-hover)] transition-colors"
+          className="flex-1 px-4 py-2.5 min-h-[48px] rounded-lg bg-[var(--btn-secondary-bg)] text-[var(--btn-secondary-text)] text-sm font-semibold hover:bg-[var(--btn-secondary-hover)] transition-colors"
         >
           Accept
         </button>
         <button
           onClick={() => handleChoice(false)}
-          className="flex-1 px-4 py-2.5 rounded-lg border border-[var(--glass-border)] text-[var(--text-muted)] text-sm font-semibold hover:bg-[var(--glass-bg-hover)] transition-colors"
+          className="flex-1 px-4 py-2.5 min-h-[48px] rounded-lg border border-[var(--glass-border)] text-[var(--text-muted)] text-sm font-semibold hover:bg-[var(--glass-bg-hover)] transition-colors"
         >
           Decline
         </button>

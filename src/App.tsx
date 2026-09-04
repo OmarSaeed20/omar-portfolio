@@ -75,14 +75,17 @@ const App = () => {
             <Routes>
               <Route path="/" element={
                 <>
-                  {/* Progressive disclosure: Hero → Work → Engineering strengths → Experience → Engineering notes → About → Contact */}
-                  <section id="home"><Hero uiType={uiType} onTabChange={setActiveTab} /></section>
-                  <section id="projects"><Projects /></section>
-                  <section id="skills"><Skills /></section>
-                  <section id="experience"><Experience /></section>
+                  {/* Progressive disclosure: Hero → Work → Engineering strengths → Experience → Engineering notes → About → Contact.
+                      Each page/section component already declares its own id, so we
+                      don't wrap them in redundant <section id> elements here (that
+                      would create duplicate ids and confuse the IntersectionObserver). */}
+                  <Hero uiType={uiType} onTabChange={setActiveTab} />
+                  <Projects />
+                  <Skills />
+                  <Experience />
                   <EngineeringNotes />
-                  <section id="about"><About /></section>
-                  <section id="contact"><Contact /></section>
+                  <About />
+                  <Contact />
                   <Footer />
                   <BottomNavBar />
                 </>

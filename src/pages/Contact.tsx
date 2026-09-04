@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 
 const Contact = () => {
   return (
-    <section id="contact" className="w-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-32 pb-48 min-h-screen text-foreground relative z-10 scroll-mt-32">
+    <section id="contact" className="w-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-32 pb-48 min-h-screen text-foreground relative z-10">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -29,7 +29,7 @@ const Contact = () => {
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-left space-y-4"
+            className="text-left space-y-4 min-w-0"
           >
             <h3 className="text-2xl md:text-4xl font-black leading-tight text-[var(--text-primary)] tracking-tighter">
               Need someone who can own more than the <span className="text-blue-600 text-glow">Flutter UI</span>?
@@ -63,7 +63,7 @@ const Contact = () => {
           </motion.div>
 
           {/* RIGHT SIDE */}
-          <div className="flex flex-col gap-4 w-full">
+          <div className="flex flex-col gap-4 w-full min-w-0">
             {contactItems.map(({ icon: Icon, label, value, href }, i) => {
               const CardComponent = href ? motion.a : motion.div;
 
@@ -82,11 +82,11 @@ const Contact = () => {
                     <Icon className="text-[var(--text-muted)] group-hover:text-blue-500 transition-colors" size={20} />
                   </div>
 
-                  <div className="flex-1 flex flex-col items-start text-left">
-                    <p className="font-black text-[var(--text-muted)] uppercase tracking-widest text-[10px] mb-1">
+                  <div className="flex-1 flex flex-col items-start text-left min-w-0">
+                    <p className="font-black text-[var(--text-muted)] uppercase tracking-widest text-[12px] sm:text-[10px] mb-1">
                       {label}
                     </p>
-                    <p className="text-base font-bold text-[var(--text-primary)] group-hover:text-blue-500 transition-colors truncate w-full">
+                    <p className="text-base font-bold text-[var(--text-primary)] group-hover:text-blue-500 transition-colors break-all sm:truncate w-full">
                       {value}
                     </p>
                   </div>

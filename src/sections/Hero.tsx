@@ -15,7 +15,7 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      className="min-h-[90vh] w-full max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-center px-4 sm:px-6 lg:px-8 gap-12 lg:gap-16 relative z-10 pt-24 pb-20 scroll-mt-20"
+      className="min-h-[90vh] w-full max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-center px-4 sm:px-6 lg:px-8 gap-12 lg:gap-16 relative z-10 pt-24 pb-20 overflow-x-clip"
     >
       {/* Background Branding */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0 opacity-70">
@@ -24,8 +24,9 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
         </span>
       </div>
 
-      {/* Left Content */}
-      <div className="flex-1 text-left max-w-2xl space-y-4 relative z-10">
+      {/* Left Content — no max-width cap so the Actions buttons aren't squeezed.
+          Text elements below keep their own max-w-* for readability. */}
+      <div className="flex-1 text-left space-y-4 relative z-10">
         <div className="space-y-4">
           {/* Status */}
           <motion.div
@@ -46,7 +47,7 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8, ease: "circOut" }}
-            className="text-4xl sm:text-6xl lg:text-8xl font-black leading-[0.9] tracking-tighter text-[var(--text-primary)]"
+            className="text-[2rem] leading-[1.08] sm:text-6xl sm:leading-[1.05] lg:text-8xl lg:leading-[1.05] font-black tracking-tighter text-[var(--text-primary)]"
           >
             <span className="block">{personalInfo.name}</span>
             <span className="block text-[var(--text-muted)] text-3xl sm:text-5xl lg:text-7xl">
@@ -98,9 +99,9 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
-          className="flex flex-col sm:flex-row items-center gap-4 pt-4"
+          className="flex flex-col md:flex-row items-center gap-4 pt-4"
         >
-          <div className="flex items-center gap-3 w-full sm:w-auto flex-wrap">
+          <div className="flex flex-col md:flex-row md:flex-wrap items-stretch md:items-center gap-3 w-full md:w-auto">
             <a
               href="#projects"
               onClick={(e) => {
@@ -112,7 +113,7 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
                   document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
                 }
               }}
-              className="flex-1 sm:flex-none px-6 py-3.5 rounded-full bg-[var(--btn-primary-bg)] text-[var(--btn-primary-text)] font-black text-base hover:bg-[var(--btn-primary-hover)] active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 group shadow-xl shadow-white/10"
+              className="w-full md:w-auto md:flex-3 px-5 md:px-6 py-3.5 rounded-full bg-[var(--btn-primary-bg)] text-[var(--btn-primary-text)] font-black text-base hover:bg-[var(--btn-primary-hover)] active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 group shadow-xl shadow-white/10 whitespace-nowrap"
             >
               View Case Studies
               <ArrowRight className="group-hover:translate-x-1 transition-transform" size={18} />
@@ -122,7 +123,7 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
               href="/assets/Omar-Saeed-Senior-Flutter-Engineer-Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 sm:flex-none px-6 py-3.5 rounded-full bg-[var(--btn-secondary-bg)] hover:bg-[var(--btn-secondary-hover)] text-[var(--btn-secondary-text)] font-black text-base transition-all duration-300 flex items-center justify-center gap-2 group shadow-xl shadow-blue-500/20"
+              className="w-full md:w-auto md:flex-2 px-5 md:px-6 py-3.5 rounded-full bg-[var(--btn-secondary-bg)] hover:bg-[var(--btn-secondary-hover)] text-[var(--btn-secondary-text)] font-black text-base transition-all duration-300 flex items-center justify-center gap-2 group shadow-xl shadow-blue-500/20 whitespace-nowrap"
             >
               <FileText size={18} />
               Resume
@@ -139,7 +140,7 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
                   document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
                 }
               }}
-              className="flex-1 sm:flex-none px-6 py-3.5 rounded-full border border-[var(--glass-border)] text-[var(--text-primary)] font-black text-base transition-all duration-300 flex items-center justify-center gap-2 group hover:bg-[var(--glass-bg-hover)]"
+              className="w-full md:w-auto md:flex2 px-5 md:px-6 py-3.5 rounded-full border border-[var(--glass-border)] text-[var(--text-primary)] font-black text-base transition-all duration-300 flex items-center justify-center gap-2 group hover:bg-[var(--glass-bg-hover)] whitespace-nowrap"
             >
               Contact
               <Send className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" size={18} />
@@ -147,8 +148,8 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
           </div>
 
           {/* Social Icons */}
-          <div className="flex items-center gap-6 sm:gap-5 pt-2 sm:pt-0">
-            <div className="h-5 w-px bg-white/10 hidden sm:block" />
+          <div className="flex items-center justify-center gap-6 sm:gap-5 pt-2 md:pt-0">
+            <div className="h-5 w-px bg-white/10 hidden md:block" />
             {contactItems
               .filter((i) => ["GitHub", "LinkedIn", "Email"].includes(i.label))
               .map((item, idx) => (
@@ -157,7 +158,7 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-all hover:scale-110 active:scale-95"
+                  className="tap-safe text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-all hover:scale-110 active:scale-95"
                   title={item.label}
                 >
                   <item.icon size={26} strokeWidth={2.2} />
@@ -195,7 +196,7 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
           </div>
 
           {/* Glow */}
-          <div className="absolute -inset-12 bg-[var(--avatar-glow)] blur-[90px] rounded-full -z-10 opacity-0 group-hover:opacity-80 transition-opacity duration-700" />
+          <div className="absolute -inset-4 sm:-inset-12 bg-[var(--avatar-glow)] blur-[60px] sm:blur-[90px] rounded-full -z-10 opacity-0 group-hover:opacity-80 transition-opacity duration-700" />
         </div>
       </motion.div>
     </motion.section>

@@ -6,7 +6,7 @@ import { PenTool, Clock } from "lucide-react";
 
 const EngineeringNotes = () => {
   return (
-    <section id="engineering-notes" className="w-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-32 pb-24 min-h-screen text-foreground relative z-10 scroll-mt-32">
+    <section id="engineering-notes" className="w-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-32 pb-24 min-h-screen text-foreground relative z-10">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -45,7 +45,7 @@ const EngineeringNotes = () => {
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-2">
                   <PenTool size={16} className="text-blue-400" />
-                  <span className="inline-flex items-center gap-1 text-[11px] font-bold text-[var(--text-muted)]">
+                  <span className="inline-flex items-center gap-1 text-[13px] sm:text-[11px] font-bold text-[var(--text-muted)]">
                     <Clock size={11} /> {note.readTime}
                   </span>
                 </div>
@@ -63,7 +63,7 @@ const EngineeringNotes = () => {
                 {note.tags.map((tag, idx) => (
                   <span
                     key={idx}
-                    className="px-2.5 py-0.5 rounded-md bg-[var(--glass-tag-bg)] border border-[var(--glass-tag-border)] text-[11px] font-bold text-[var(--text-muted)] uppercase tracking-wider"
+                    className="px-2.5 py-0.5 rounded-md bg-[var(--glass-tag-bg)] border border-[var(--glass-tag-border)] text-[13px] sm:text-[11px] font-bold text-[var(--text-muted)] uppercase tracking-wider"
                   >
                     {tag}
                   </span>

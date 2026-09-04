@@ -261,6 +261,27 @@ body {
 
 html {
   scroll-behavior: smooth;
+  /* Stop any future element from creating a horizontal scrollbar,
+     without hiding sticky/fixed positioning the way overflow:hidden does. */
+  overflow-x: clip;
+}
+
+/* Grid and flex children must be allowed to shrink. */
+.grid > *, .flex > * { min-width: 0; }
+
+/* Long URLs, emails and IDs wrap instead of forcing width. */
+a, p { overflow-wrap: anywhere; }
+
+/* Grow the hit area of small inline controls to 48×48px (comfortable target)
+   without changing their visual size. */
+.tap-safe { position: relative; }
+.tap-safe::after {
+  content: "";
+  position: absolute;
+  inset: 50% 50%;
+  width: 48px;
+  height: 48px;
+  transform: translate(-50%, -50%);
 }
 
 .glow-nav {
@@ -289,6 +310,52 @@ html {
     transform: scale(1.02);
     transition: box-shadow 0.3s ease, transform 0.3s ease;
   }
+}
+
+/* ── Nav fixes (from bug-fix-portfolio) ── */
+
+/* 1. HEADER OFFSET — SINGLE VALUE
+   Previously the hero used scroll-mt-20 (80px) while every other section used
+   scroll-mt-32 (128px). One of those was wrong against the real header height,
+   so anchors landed inconsistently. Define it once and derive everything.
+   (The scroll-mt-* Tailwind classes have been removed from the section
+   elements so this rule wins.) */
+:root {
+  --header-h: 72px;          /* measure your actual rendered header height */
+  --anchor-offset: 24px;     /* breathing room below the header */
+}
+
+section[id] {
+  scroll-margin-top: calc(var(--header-h) + var(--anchor-offset));
+}
+
+/* 2. BOTTOM NAV CLEARANCE
+   The fixed pill overlaps the tail of the last section on short viewports.
+   Reserve space for it plus the device inset. */
+@media (max-width: 1023px) {
+  body {
+    padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* 3. SAFE AREA — PWA STANDALONE MODE
+   You ship apple-mobile-web-app-capable and a manifest, so the site can be
+   installed. In standalone mode there is no browser chrome absorbing the home
+   indicator, and bottom-4 (16px) puts the nav inside the gesture zone. */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .bottom-nav-shell {
+    bottom: calc(1rem + env(safe-area-inset-bottom));
+  }
+}
+
+/* 5. FOCUS VISIBILITY
+   Nav buttons previously signalled active state by colour alone and had no
+   visible keyboard focus ring against the glass background. */
+nav button:focus-visible,
+header a:focus-visible {
+  outline: 2px solid var(--foreground);
+  outline-offset: 3px;
+  border-radius: 0.75rem;
 }
 
 /* ── Reduced Motion ── */

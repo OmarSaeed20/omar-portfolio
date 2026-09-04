@@ -8,7 +8,7 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="w-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-32 pb-24 min-h-screen text-foreground relative z-10 scroll-mt-32"
+      className="w-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-32 pb-24 min-h-screen text-foreground relative z-10"
     >
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -58,7 +58,7 @@ const Skills = () => {
                 {cap.description}
               </p>
               <div>
-                <p className="text-[10px] font-black uppercase tracking-widest text-[var(--text-muted)] mb-2">
+                <p className="text-[12px] sm:text-[10px] font-black uppercase tracking-widest text-[var(--text-muted)] mb-2">
                   Used in
                 </p>
                 <div className="flex flex-wrap gap-1.5">

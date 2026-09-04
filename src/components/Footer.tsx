@@ -31,7 +31,7 @@ const Footer = () => {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-all hover:scale-110 active:scale-95"
+                className="tap-safe text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-all hover:scale-110 active:scale-95"
                 title={label}
               >
                 <Icon size={18} strokeWidth={2} />
@@ -42,7 +42,7 @@ const Footer = () => {
           {/* Right: Back to Top */}
           <button
             onClick={scrollToTop}
-            className="group flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--glass-border)] bg-[var(--glass-bg)] hover:bg-[var(--glass-bg-hover)] hover:border-blue-500/30 transition-all duration-300 text-xs font-black uppercase tracking-widest text-[var(--text-muted)] hover:text-[var(--text-primary)]"
+            className="group flex items-center gap-2 px-4 py-2.5 min-h-[48px] rounded-full border border-[var(--glass-border)] bg-[var(--glass-bg)] hover:bg-[var(--glass-bg-hover)] hover:border-blue-500/30 transition-all duration-300 text-xs font-black uppercase tracking-widest text-[var(--text-muted)] hover:text-[var(--text-primary)]"
           >
             Back to Top
             <ArrowUp size={14} className="group-hover:-translate-y-0.5 transition-transform" />
