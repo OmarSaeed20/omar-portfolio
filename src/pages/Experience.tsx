@@ -2,22 +2,23 @@
 
 import { motion } from "framer-motion";
 import { experience } from "../data/userData";
-import { Briefcase, Package, GitBranch, Smartphone, Layers } from "lucide-react";
+import { Briefcase, Package, GitBranch, Layers, Users, Code } from "lucide-react";
 
 const sourcyaProofStats = [
-  { icon: Smartphone, label: "Apps Migrated", value: "8+" },
-  { icon: Package, label: "Reusable Packages", value: "2+" },
-  { icon: GitBranch, label: "Repos Touched", value: "22" },
+  { icon: GitBranch, label: "Production Repos", value: "20+" },
+  { icon: Code, label: "Features Shipped", value: "60+" },
   { icon: Layers, label: "Flavors Configured", value: "3+" },
+  { icon: Package, label: "Reusable Package", value: "2+" },
+  // { icon: Users, label: "Junior Devs Mentored", value: "6" },
 ];
 
 const sourcyaContributions = [
-  "API migration across 8+ apps (rehla-operator, madaan-operator, tmt-gps)",
-  "Built sourcya_in_app_rating Flutter package — integrated into 5+ apps",
-  "PlayX ecosystem enhancements (playx_network streaming, interceptors, path params)",
-  "Configured Staging/Production flavors for 3+ apps",
-  "Delivered Rehla Operator app from scratch (trips, routes, drivers, PDF reports)",
-  "Mafrooz Hub V3.0 redesign with three-tier responsive system",
+  "Own delivery across 20+ production repositories spanning fleet GPS tracking, indoor asset tracking, cold-chain monitoring, ride-hailing, workforce management, healthcare and recycling",
+  "Rebuilt fleet-tracking event-trigger system — replaced 21 flat reactive fields with a consolidated day-schedule state model, eliminating duplicated logic and clearing tracking and validation defects",
+  "Built reusable in-app rating Flutter package with dependency-inversion seams and Arabic internationalization, integrated across multiple client applications",
+  "Enhanced the PlayX ecosystem (playx_network streaming, interceptors, path params)",
+  "Review and approve pull requests covering flavor configuration, Firebase integration and Codemagic CI/CD pipelines",
+  "Configured Staging/Production flavors for multi-app releases",
 ];
 
 const Experience = () => {

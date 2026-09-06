@@ -15,11 +15,13 @@ export const personalInfo = {
   location: "Egypt",
   role: "Senior Flutter Engineer",
   tagline: "I build mobile systems that stay reliable after they reach production.",
-  focus: "Architecture · Realtime Systems · Performance · Android · iOS · Web",
+  focus: "Architecture · Real-time Systems · Performance · Android · iOS · Web",
   roles: [
     "Senior Flutter Engineer",
-    "Mobile App Developer",
+    "Mobile App Engineer",
     "Clean Architecture Expert",
+    "GetX/ Pattern Expert",
+    "BLoC/Cubit Clean Architecture Expert",
   ],
   college: "Menoufia University",
   collegeUrl: "https://www.menofia.edu.eg/",
@@ -27,29 +29,28 @@ export const personalInfo = {
   status: "Open to select senior opportunities",
   aboutText: "Senior Flutter Engineer from Egypt with 4+ years building production mobile and web systems across Android, iOS, and Web — architecture, realtime data, and performance that survives production.",
   aboutText1: "I didn't take the conventional route into engineering. I graduated in Commerce (English Section) from ",
-  aboutText2: ", then built my way into software through production work — one shipped application, architectural problem and engineering responsibility at a time. Today I deliver 22+ production apps across logistics, tracking, recycling, education and workforce platforms.",
+  aboutText2: ", then built my way into software through production work — one shipped application, architectural problem and engineering responsibility at a time. Today I deliver 22 production apps across logistics, tracking, recycling, education and workforce platforms.",
 };
 
 export const skillStats = [
   { label: "Years Building", value: "4+" },
-  { label: "Shipped Products", value: "22+" },
-  { label: "Active Repos", value: "22" },
+  { label: "Production Apps", value: "22" },
+  { label: "Production Repos", value: "20+" },
   { label: "Apps Migrated", value: "8+" },
   { label: "Platforms", value: "3" },
-  { label: "Published Packages", value: "2" },
+  { label: "Published Packages", value: "2+" },
 ];
 
 export const proofRail = [
   "4+ years building and shipping production systems",
-  "22+ shipped products across Android, iOS & Web",
-  "8+ apps migrated (API + flavor + store release matrix)",
-  // "22 active repositories owned or touched",
-  "2 published Dart packages — sourcya_in_app_rating, PlayX",
+  "22 production apps across Android, iOS & Web",
+  "20+ production repositories ",
+  "2+ open-source packages (Author & Contributor)",
 ];
 
 export const facts = [
   "Flutter Expert",
-  "22+ Production Apps",
+  "22 Production Apps",
   "Clean Architecture",
   "Performance Optimizer",
   "Team Mentor",
@@ -157,6 +158,105 @@ export const aiEngineering = [
   },
 ];
 
+export const experienceData = [
+  {
+    company: "Sourcya",
+    role: "Senior Flutter Engineer",
+    location: "Remote, Saudi Arabia",
+    period: "Sep 2025 – Present",
+    description: "Own delivery and maintenance across 20+ production repositories and 60+ production features spanning fleet GPS tracking, indoor asset tracking, cold-chain monitoring, ride-hailing, workforce management, healthcare and recycling — across Android, iOS and Web.",
+    highlights: [
+      "20+ production repositories",
+      "60+ features shipped to production",
+      "Fleet GPS, ride-hailing, cold-chain monitoring",
+      "Reusable in-app rating package with DI seams",
+      "Multi-flavor white-label CI/CD pipelines",
+    ],
+  },
+  {
+    company: "Drop Me",
+    role: "Lead Flutter Engineer (Part-time)",
+    location: "Egypt",
+    period: "Jan 2023 – Present",
+    description: "Sole Flutter developer from first commit through public release on Google Play and the App Store. Built and maintain the real-time rewards system and gamified sustainability tracking.",
+    highlights: [
+      "First commit to public release ownership",
+      "Real-time rewards system",
+      "Mentoring 2 junior Flutter developers",
+    ],
+  },
+  {
+    company: "Mafrooz",
+    role: "Senior Flutter Engineer",
+    location: "Remote, Saudi Arabia",
+    period: "Jan 2025 – Jun 2025",
+    description: "Led performance optimization on a Strapi-backed waste management and recycling platform across mobile and web, integrating 67 REST API endpoints across 13 modules.",
+    highlights: [
+      "67 REST API endpoints across 13 modules",
+      "Performance optimization",
+      "API documentation from Postman collections",
+    ],
+  },
+  {
+    company: "Semicolon",
+    role: "Flutter Engineer",
+    location: "Egypt",
+    period: "Jan 2024 – Jul 2024",
+    description: "Built and shipped Zaakr, 3M Physics and a suite of e-learning applications applying Clean Architecture and GetX.",
+    highlights: [
+      "Multiple production apps shipped",
+      "Clean Architecture and GetX",
+      "Mentored 4 junior Flutter developers",
+    ],
+  },
+  {
+    company: "Nofalseo",
+    role: "Flutter Engineer",
+    location: "On-site, Menoufia, Egypt",
+    period: "Jun 2023 – Jan 2024",
+    description: "Developed Cars (C2S automotive marketplace), General Consultation (B2B consulting platform) and Super School, all built on Clean Architecture with GetX.",
+    highlights: [
+      "C2S automotive marketplace",
+      "B2B consulting platform",
+      "Clean Architecture with GetX",
+    ],
+  },
+  {
+    company: "Self-employed",
+    role: "Freelance Flutter Engineer",
+    location: "Egypt",
+    period: "2022",
+    description: "Delivered Az-Cash and El Aqarat as an independent developer. Completed Flutter MVVM and Advanced Clean Architecture certifications.",
+    highlights: [
+      "First production apps shipped",
+      "MVVM and Clean Architecture certifications",
+    ],
+  },
+];
+
+export const whatIWorkOn = [
+  {
+    title: "Production ownership at scale",
+    description: "Own delivery and maintenance across 20+ production repositories, shipping 60+ features to production against REST and real-time backends. Cross-platform from a shared multi-app core.",
+    evidence: ["20+ repos", "60+ production features", "Sourcya multi-app ecosystem"],
+  },
+  {
+    title: "Real-time and tracking systems",
+    description: "WebSocket, SSE and streaming integration for live GPS fleet tracking, cold-chain monitoring, indoor asset tracking and ride-hailing. Reconnect strategies, stale-data fallback and background lifecycle management.",
+    evidence: ["TMT Track", "Kold", "Rehla", "Drop Me"],
+  },
+  {
+    title: "Architecture and reusable components",
+    description: "Clean Architecture, SOLID, GetX and dependency inversion. Built a reusable in-app rating package with DI seams and Arabic internationalization, integrated across multiple client applications.",
+    evidence: ["sourcya_in_app_rating package", "Shared component monorepo", "PlayX ecosystem"],
+  },
+  {
+    title: "Release engineering and CI/CD",
+    description: "Multi-flavor white-label builds with Codemagic, Fastlane and GitHub Actions. Review and approve pull requests covering flavor configuration, Firebase integration and CI/CD pipelines.",
+    evidence: ["Codemagic", "Fastlane", "GitHub Actions", "PR review and approval"],
+  },
+];
+
 export const careerEvolution = [
   {
     year: "2022",
@@ -166,25 +266,25 @@ export const careerEvolution = [
   {
     year: "2023",
     milestone: "Architecture discipline & first lead ownership",
-    detail: "Delivered Cars (C2S marketplace) and General Consultation with Clean Architecture + BLoC. Took on Lead Flutter Developer role at Drop Me — building realtime rewards, gamification and Firebase integration for a consumer recycling app.",
+    detail: "Delivered Cars (C2S marketplace) and General Consultation with Clean Architecture + GetX. Took on Lead Flutter Engineer role at Drop Me — building realtime rewards, gamification and Firebase integration for a consumer recycling app.",
   },
   {
     year: "2024",
     milestone: "Multi-product delivery",
-    detail: "Joined Semicolon. Shipped Zaakr, 3M Physics, Super School and E-learning platforms. Applied clean architecture and BLoC patterns consistently across all projects — building the discipline of repeatable delivery.",
+    detail: "Joined Semicolon. Shipped Zaakr, 3M Physics, Super School and E-learning platforms. Applied clean architecture and GetX & BLoC patterns consistently across all projects — building the discipline of repeatable delivery.",
   },
   {
     year: "2025",
     milestone: "Realtime & platform-scale systems + reusable infrastructure",
-    detail: "Joined Sourcya after leading performance optimization at Mafrooz. Built multi-app delivery & workforce platforms from scratch — TMT Track (realtime GPS), Nasni, Kold (realtime monitoring), Rehla (multi-role ride-hailing). Led API migration across 8+ apps, built the sourcya_in_app_rating package (adopted in 5+ apps), enhanced the PlayX ecosystem (streaming, interceptors, path params), and configured Staging/Production flavors for multi-app releases.",
+    detail: "Joined Sourcya after leading performance optimization at Mafrooz. Built multi-app delivery & workforce platforms from scratch — TMT Track (realtime GPS), Nasni, Kold (realtime monitoring), Rehla (multi-role ride-hailing). Built the sourcya_in_app_rating package, enhanced the PlayX ecosystem (streaming, interceptors, path params), and configured Staging/Production flavors for multi-app releases.",
   },
 ];
 
 export const projectData = [
   {
     name: "TMT Track",
-    tagline: "Realtime fleet intelligence across Android, iOS & Web",
-    description: "Real-time GPS tracking platform for fleet management, live tracking, and geofencing across Android, iOS, and Web.",
+    tagline: "Real-time fleet intelligence across Android, iOS & Web",
+    description: "Real-time GPS tracking platform for fleet management, live tracking, and geofencing across Android, iOS, and Web. Clean Architecture with GetX for reactive state.",
     tech: ["Flutter", "Dart", "GetX", "playx_network", "Dio", "WebSocket", "GPS", "OSM"],
     live: "https://gps.tmtx.io/",
     github: "",
@@ -220,8 +320,8 @@ export const projectData = [
   },
   {
     name: "Drop Me",
-    tagline: "Circular recovery mobile platform with realtime rewards",
-    description: "Consumer-facing circular recovery platform connecting verified recycling actions with real-time rewards, gamification and sustainability engagement.",
+    tagline: "Circular recovery mobile platform with real-time rewards",
+    description: "Consumer-facing circular recovery platform connecting verified recycling actions with real-time rewards, gamification and sustainability engagement. Clean Architecture with GetX and Firebase.",
     tech: ["Flutter", "Dart", "Firebase", "GetX", "Dio", "WebSocket"],
     live: "https://play.google.com/store/apps/details?id=com.dropme.recycling",
     github: "",
@@ -318,7 +418,7 @@ export const projectData = [
   {
     name: "Rehla",
     tagline: "Multi-role ride-hailing platform — Driver, Passenger, Operator, Station",
-    description: "Ride-hailing & transportation platform with multi-role architecture (Driver, Passenger, Operator, Station).",
+    description: "Ride-hailing & transportation platform with multi-role architecture (Driver, Passenger, Operator, Station). Clean Architecture with GetX for reactive state, sharing a common core across four role-specific apps.",
     tech: ["Flutter", "Dart", "GetX", "playx_network", "Dio", "WebSocket", "GPS", "OSM"],
     live: "https://play.google.com/store/apps/details?id=sa.com.altatawwar.rehla.driver.app",
     github: "",
@@ -392,7 +492,7 @@ export const projectData = [
   },
   {
     name: "PlayX Ecosystem",
-    description: "Open-source Flutter package ecosystem: playx_network (streaming/SSE, interceptors, path params), playx_core (extensions, mapper utils), playx_version_update.",
+    description: "Open-source Flutter package ecosystem. Contributor to playx_network (streaming/SSE, interceptors, path params), playx_core (extensions, mapper utils), and playx_version_update (version-gating tooling).",
     tech: ["Flutter", "Dart", "Dio", "REST API", "Open Source"],
     live: "https://github.com/playx-flutter",
     github: "https://github.com/playx-flutter",
@@ -401,7 +501,7 @@ export const projectData = [
   },
   {
     name: "General Consultation",
-    description: "B2B consulting platform connecting businesses with experts across marketing, finance, and strategy domains.",
+    description: "B2B consulting platform connecting businesses with experts across marketing, finance, and strategy domains. Clean Architecture with GetX state management.",
     tech: ["Flutter", "Dart", "GetX", "Firebase", "WebSocket"],
     live: "",
     github: "https://github.com/OmarSaeed20/general-consultation",

@@ -17,6 +17,8 @@ export {
   aiEngineering,
   careerEvolution,
   projectData,
+  experienceData,
+  whatIWorkOn,
 } from "./crawlable.js";
 import { personalInfo } from "./crawlable.js";
 
@@ -240,44 +242,44 @@ export const timeline = [
   {
     year: "Sep 2025 – Present",
     detail:
-      "Senior Flutter Engineer at Sourcya — multi-app delivery & workforce platforms across Android, iOS & Web.",
+      "Senior Flutter Developer at Sourcya — own delivery across 20+ production repositories spanning fleet GPS tracking, indoor asset tracking, cold-chain monitoring, ride-hailing, workforce management, healthcare and recycling.",
     more:
-      "Joined Sourcya after leading performance optimization at Mafrooz. Led API migration across 8+ apps (rehla-operator, madaan-operator, tmt-gps), built the sourcya_in_app_rating Flutter package integrated into 5+ apps, configured Staging/Production flavors for 3 apps, delivered the Rehla Operator app from scratch (trips, routes, drivers, reports with PDF export), built the Mafrooz Hub V3.0 redesign with three-tier responsive system, and enhanced the PlayX ecosystem (playx_network streaming, interceptors, path params). Earlier in 2025: built the Mafrooz Hub app from scratch, scaffolded the Amenaa (SWNW) medical app, built TMT GPS vehicle group management, and delivered Nasni entities & building dashboard, Kold live monitor & dashboard.",
+      "Own delivery and maintenance across 20+ production repositories, shipping 60+ features to production. Rebuilt a fleet-tracking event-trigger system replacing 21 flat reactive fields with a consolidated day-schedule state model. Built the sourcya_in_app_rating package with dependency-inversion seams and Arabic internationalization. Enhanced the PlayX ecosystem (playx_network streaming, interceptors, path params). Configured Staging/Production flavors for multi-app releases.",
   },
   {
     year: "2025",
     detail:
-      "Senior Flutter Engineer at Mafrooz — performance optimization & waste-tracking logistics platform.",
+      "Senior Flutter Developer at Mafrooz — performance optimization on a Strapi-backed waste management and recycling platform.",
     more:
-      "Led performance optimization efforts. Built the Mafrooz recycling services platform with pickup scheduling and waste tracking.",
+      "Led performance optimization on a Strapi-backed waste management and recycling platform across mobile and web. Produced and maintained API documentation from Postman collections.",
   },
   {
     year: "2024",
     detail:
-      "Flutter Developer at Semicolon — built Zaakr, 3M Physics, and E-learning apps.",
+      "Flutter Developer at Semicolon — built Zaakr, 3M Physics, and e-learning apps.",
     more:
-      "Developed multiple production apps including Zaakr, 3M Physics, Super School, and E-learning platforms. Applied clean architecture and BLoC patterns across all projects.",
+      "Developed multiple production apps including Zaakr, 3M Physics, Super School, and E-learning platforms. Applied Clean Architecture and GetX, Provider patterns across all projects. Mentored 4 junior Flutter developers.",
   },
   {
     year: "2023",
     detail:
-      "Flutter Developer at Nofalseo — built Cars, General Consultation, and more.",
+      "Flutter Developer at Nofalseo — built Cars, General Consultation, Super School, and more.",
     more:
-      "Developed Cars (C2S automotive marketplace) and General Consultation (B2B consulting platform) using Clean Architecture with BLoC state management.",
+      "Developed Cars (C2S automotive marketplace) and General Consultation (B2B consulting platform) using Clean Architecture with GetX state management. Also built Super School.",
   },
   {
     year: "2023",
     detail:
-      "Lead Flutter Developer at Drop Me — circular recovery mobile platform (side project).",
+      "Lead Flutter Developer at Drop Me — circular recovery mobile platform (part-time).",
     more:
-      "Built real-time rewards system and gamification features for sustainable practices. Maintained alongside full-time roles.",
+      "Sole Flutter developer from first commit through public release on Google Play and App Store. Built and maintain the real-time rewards system sustainability tracking. Mentoring 2 junior Flutter developers.",
   },
   {
     year: "2022",
     detail:
       "Freelance Flutter Developer — started professional journey with Az-Cash & El Aqarat.",
     more:
-      "Completed Flutter MVVM with Clean Architecture (22h) and Advanced Flutter Clean Architecture (8h) certifications. Built first production apps and established core skills.",
+      "Completed Flutter MVVM with Clean Architecture (22h) and Advanced Flutter Clean Architecture (8h) certifications. Built first production apps and established core architecture discipline.",
   },
 ];
 
@@ -313,50 +315,50 @@ export const contactItems = [
 ];
 
 export const resume = {
-  "flutter-developer": "/assets/Omar-Saeed-Senior-Flutter-Engineer-Resume.pdf",
+  "flutter-developer": "/assets/Omar-Saeed-Senior-Flutter-Developer-Resume.pdf",
 };
 
 export const experience = [
   {
     company: "Sourcya",
-    role: "Senior Flutter Engineer",
+    role: "Senior Flutter Developer",
     period: "Sep 2025 – Present",
-    description: "Building multi-app delivery & workforce platforms (TMT Track, Nasni, Kold, Arbeta, Rehla, Ammena, Mafrooz, Madaan) across Android, iOS & Web using GetX + PlayX ecosystem. Led API migration across 8+ apps, built the sourcya_in_app_rating package, and configured Staging/Production flavors for multi-app releases.",
-    highlights: ["22 repos", "API migration across 8+ apps", "sourcya_in_app_rating package", "PlayX ecosystem enhancements"],
-  },
-  {
-    company: "Mafrooz",
-    role: "Senior Flutter Engineer",
-    period: "2025",
-    description: "Led performance optimization. Built the pickup & waste-tracking logistics platform with pickup scheduling, collector/factory management, and a three-tier responsive inventory system.",
-    highlights: ["Waste-tracking logistics platform", "Performance optimization"],
-  },
-  {
-    company: "Semicolon",
-    role: "Flutter Developer",
-    period: "2024",
-    description: "Developed multiple production apps including Zaakr, 3M Physics, Super School, and E-learning platforms with clean architecture and BLoC patterns.",
-    highlights: ["Multiple production apps", "BLoC & Clean Architecture"],
-  },
-  {
-    company: "Nofalseo",
-    role: "Flutter Developer",
-    period: "2023",
-    description: "Built Cars (C2S automotive marketplace) and General Consultation (B2B consulting platform) using Clean Architecture with BLoC state management.",
-    highlights: ["C2S marketplace", "B2B consulting platform"],
+    description: "Own delivery and maintenance across 20+ production repositories and 60+ production features spanning fleet GPS tracking, indoor asset tracking, cold-chain monitoring, ride-hailing, workforce management, healthcare and recycling — across Android, iOS and Web from a shared multi-app core.",
+    highlights: ["20+ production repos","API migration across 8+ apps", "60+ production features", "Fleet GPS, ride-hailing, cold-chain", "sourcya_in_app_rating package", "Multi-flavor CI/CD pipelines"],
   },
   {
     company: "Drop Me",
     role: "Lead Flutter Developer (Part-time)",
-    period: "2023 – Present",
-    description: "Led Flutter delivery for the consumer-facing layer of a circular recovery ecosystem — connecting verified recycling actions with real-time rewards, gamification and sustainability engagement across Android & iOS.",
-    highlights: ["Realtime rewards & gamification", "Ongoing part-time"],
+    period: "Jan 2023 – Present",
+    description: "Sole Flutter developer from first commit through public release on Google Play and the App Store. Built and maintain the real-time rewards system and gamified sustainability tracking.",
+    highlights: ["First commit to public release", "Real-time rewards system", "Mentoring 2 junior developers"],
   },
   {
-    company: "Freelance",
+    company: "Mafrooz",
+    role: "Senior Flutter Developer",
+    period: "Jan 2025 – Jun 2025",
+    description: "Led performance optimization. Built the pickup & waste-tracking logistics platform with pickup scheduling, collector/factory management, and a three-tier responsive inventory system.",
+    highlights: ["Waste-tracking logistics platform", "Performance optimization", "API documentation from Postman collections"],
+  },
+  {
+    company: "Semicolon",
     role: "Flutter Developer",
-    period: "2022 – 2023",
-    description: "Started professional journey with Az-Cash & El Aqarat. Completed Flutter MVVM and Advanced Clean Architecture certifications. Shipped first production apps.",
+    period: "Jan 2024 – Jul 2024",
+    description: "Built and shipped Zaakr, 3M Physics and a suite of e-learning applications applying Clean Architecture, Provider and GetX. Mentored 4 junior Flutter developers.",
+    highlights: ["Multiple production apps shipped", "Clean Architecture & GetX & Provider", "Mentored 4 junior developers"],
+  },
+  {
+    company: "Nofalseo",
+    role: "Flutter Developer",
+    period: "Jun 2023 – Jan 2024",
+    description: "Developed Cars (C2S automotive marketplace), General Consultation (B2B consulting platform) and Super School, all built on Clean Architecture with GetX.",
+    highlights: ["C2S automotive marketplace", "B2B consulting platform", "Clean Architecture with GetX"],
+  },
+  {
+    company: "Self-employed",
+    role: "Freelance Flutter Developer",
+    period: "2022",
+    description: "Delivered Az-Cash and El Aqarat as an independent developer. Completed Flutter MVVM and Advanced Clean Architecture certifications.",
     highlights: ["First production apps", "MVVM & Clean Architecture certs"],
   },
 ];
