@@ -302,6 +302,23 @@ const TerminalMode = ({ setTerminalMode, setUiType }: Props) => {
           </div>
         </form>
       </div>
+
+      {/* Back to GUI button — visible escape hatch from terminal mode */}
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          setTerminalMode(false);
+        }}
+        className="fixed top-4 right-4 z-[60] p-2.5 rounded-xl border border-[var(--terminal-border)] bg-[var(--terminal-bg)] text-[var(--terminal-text)] hover:opacity-80 transition-all duration-300"
+        title="Back to GUI (gui / exit)"
+        aria-label="Back to GUI"
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="3" y="4" width="18" height="14" rx="2" />
+          <line x1="3" y1="9" x2="21" y2="9" />
+          <line x1="7" y1="14" x2="13" y2="14" />
+        </svg>
+      </button>
     </div>
   );
 };

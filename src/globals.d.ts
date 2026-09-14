@@ -1,6 +1,9 @@
 // Global declarations for Google Consent Mode v2 / gtag.js
 // gtag is loaded inline in index.html
 
+declare module "@designcodeio/threeui/style.css";
+declare module "*.css";
+
 declare global {
   interface Window {
     gtag: (...args: unknown[]) => void;

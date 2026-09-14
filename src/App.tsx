@@ -1,7 +1,6 @@
 import { useState } from "react";
-import Navbar from "./components/Navbar";
+import AnimatedNavbar from "./components/AnimatedNavbar";
 import GlobalBackground from "./components/Background";
-import BottomNavBar from "./components/BottomNavBar";
 import Footer from "./components/Footer";
 import TerminalMode from "./terminal/TerminalMode";
 import Hero from "./sections/Hero";
@@ -14,8 +13,27 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import ConsentBanner from "./components/ConsentBanner";
 
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import { useTheme } from "./context/ThemeContext";
+
+// Wrapper for standalone section pages reached via direct URL navigation
+// (e.g. /experience, /about). Adds a Back-to-Home link, Footer, and the
+// mobile BottomNavBar so direct-link visitors get the same chrome as the
+// landing page without re-rendering every section.
+const SectionPage = ({ section }: { section: React.ReactNode }) => (
+  <>
+    {section}
+    <div className="flex justify-center pb-24">
+      <Link
+        to="/"
+        className="px-8 py-4 rounded-full border border-[var(--glass-border)] text-[var(--text-muted)] font-bold hover:bg-[var(--glass-bg-hover)] hover:text-[var(--text-primary)] transition-all"
+      >
+        ← Back to Home
+      </Link>
+    </div>
+    <Footer />
+  </>
+);
 
 const App = () => {
   const { theme } = useTheme();
@@ -61,7 +79,7 @@ const App = () => {
   return (
     <div className="w-full min-h-screen bg-[var(--background)] text-[var(--foreground)] relative transition-colors duration-300">
       <GlobalBackground />
-      <Navbar
+      <AnimatedNavbar
         terminalMode={terminalMode}
         setTerminalMode={handleTerminalToggle}
         uiType={uiType}
@@ -88,25 +106,20 @@ const App = () => {
                   <About />
                   <Contact />
                   <Footer />
-                  <BottomNavBar />
                 </>
               } />
-              <Route path="/projects" element={
-                <div>
-                  <Projects />
-                  <div className="flex justify-center pb-24">
-                    <a href="/" className="px-8 py-4 rounded-full border border-[var(--glass-border)] text-[var(--text-muted)] font-bold hover:bg-[var(--glass-bg-hover)] hover:text-[var(--text-primary)] transition-all">
-                      ← Back to Home
-                    </a>
-                  </div>
-                </div>
-              } />
+              <Route path="/projects" element={<SectionPage section={<Projects />} />} />
+              <Route path="/work" element={<SectionPage section={<Projects />} />} />
+              <Route path="/experience" element={<SectionPage section={<Experience />} />} />
+              <Route path="/skills" element={<SectionPage section={<Skills />} />} />
+              <Route path="/engineering-notes" element={<SectionPage section={<EngineeringNotes />} />} />
+              <Route path="/about" element={<SectionPage section={<About />} />} />
+              <Route path="/contact" element={<SectionPage section={<Contact />} />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           ) : (
             <div>
               {renderModularUI()}
-              <BottomNavBar forcedTab={activeTab} setForcedTab={setActiveTab} />
             </div>
           )}
         </main>

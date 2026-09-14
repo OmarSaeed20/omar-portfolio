@@ -371,3 +371,104 @@ header a:focus-visible {
     scroll-behavior: auto;
   }
 }
+
+/* ── ThreeUI shader frame host ── */
+.shader-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* ── AnimatedTopDock as portfolio nav bar ── */
+.atd-portfolio-nav {
+  height: auto !important;
+  min-height: 0 !important;
+  overflow: visible !important;
+  background: transparent !important;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 60;
+  pointer-events: none;
+}
+
+.atd-portfolio-nav .atd-modern__bar {
+  pointer-events: auto;
+}
+
+.atd-portfolio-nav .atd-modern__aurora,
+.atd-portfolio-nav .atd-modern__stage,
+.atd-portfolio-nav .animated-top-dock-component__caption {
+  display: none !important;
+}
+
+.atd-portfolio-nav .atd-modern__bar {
+  --atd-top: 12px;
+  position: fixed !important;
+  top: 12px;
+  left: 50%;
+  width: max-content;
+  max-width: min(1240px, calc(100% - 32px));
+  z-index: 60 !important;
+  /* Match the app's glass-card aesthetic instead of hardcoded dark colors */
+  background-color: var(--glass-bg) !important;
+  background-image: none !important;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: 999px !important;
+  backdrop-filter: blur(22px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(22px) saturate(150%) !important;
+  box-shadow: 0 8px 32px -12px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Brand word — use app text tokens */
+.atd-portfolio-nav .atd-modern__brand {
+  color: var(--text-primary) !important;
+}
+
+/* Nav items — glass-card hover style with app tokens */
+.atd-portfolio-nav .atd-modern__item {
+  color: var(--text-muted) !important;
+  border: 1px solid transparent !important;
+  border-radius: 999px !important;
+  background: transparent !important;
+  transition: color 0.16s, border-color 0.18s, background 0.18s !important;
+}
+
+.atd-portfolio-nav .atd-modern__item[data-dock-near="true"],
+.atd-portfolio-nav .atd-modern__item:hover,
+.atd-portfolio-nav .atd-modern__item:focus-visible {
+  color: var(--text-primary) !important;
+  border-color: var(--glass-border-hover) !important;
+  background: var(--glass-bg-hover) !important;
+  box-shadow: none !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+/* Active item — accent highlight */
+.atd-portfolio-nav .atd-modern__item[aria-pressed="true"] {
+  color: var(--accent-foreground) !important;
+  border-color: transparent !important;
+  background: var(--accent) !important;
+  box-shadow: none !important;
+}
+
+.atd-portfolio-nav .atd-modern__item[aria-pressed="true"] .atd-modern__icon {
+  opacity: 1 !important;
+}
+
+/* CTA (Resume button) — app primary button style */
+.atd-portfolio-nav .atd-modern__cta {
+  background: var(--btn-primary-bg) !important;
+  color: var(--btn-primary-text) !important;
+  box-shadow: none !important;
+}
+
+.atd-portfolio-nav .atd-modern__cta:hover {
+  background: var(--btn-primary-hover) !important;
+  box-shadow: none !important;
+}
