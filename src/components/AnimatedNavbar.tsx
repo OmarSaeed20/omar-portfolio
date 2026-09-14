@@ -6,6 +6,7 @@ import {
   type DockAction,
 } from "../shaders/animated-top-dock/AnimatedTopDock";
 import "../shaders/threeui.css";
+import ThemeToggle from "./ThemeToggle";
 import {
   NAV_ITEMS,
   useActiveSection,
@@ -146,18 +147,21 @@ export default function AnimatedNavbar({
         caption=""
         className="atd-portfolio-nav"
       />
-      {/* Terminal toggle button — kept as a floating control */}
-      <button
-        onClick={() => setTerminalMode(!terminalMode)}
-        className="fixed top-4 right-4 z-[60] p-2.5 rounded-xl border border-[var(--glass-border)] bg-[var(--glass-bg)] text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--glass-bg-hover)] transition-all duration-300"
-        title="Toggle Terminal"
-        aria-label="Toggle Terminal"
-      >
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <polyline points="4 17 10 11 4 5" />
-          <line x1="12" y1="19" x2="20" y2="19" />
-        </svg>
-      </button>
+      {/* Floating controls — terminal toggle + theme toggle */}
+      <div className="fixed top-4 right-4 z-[60] flex items-center gap-2">
+        <ThemeToggle />
+        <button
+          onClick={() => setTerminalMode(!terminalMode)}
+          className="p-2.5 rounded-xl border border-[var(--glass-border)] bg-[var(--glass-bg)] text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--glass-bg-hover)] transition-all duration-300"
+          title="Toggle Terminal"
+          aria-label="Toggle Terminal"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="4 17 10 11 4 5" />
+            <line x1="12" y1="19" x2="20" y2="19" />
+          </svg>
+        </button>
+      </div>
     </>
   );
 }
